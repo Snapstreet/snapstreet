@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export class listingSeller {
   key: string;
   Title: string = "Mr";
@@ -51,57 +50,3 @@ export class listingSeller {
   usertitle:any;
   PropertyFor:any;
 }
-=======
-export class listingSeller {
-  key: string;
-  Title: string = "Mr";
-  Firstname: string;
-  Lastname: string;
-  Email: string;
-  DOB: string;
-  Password: string;
-  Confirm: string;
-  financial: string;
-  MortageFree: string;
-  LookingTown: string;
-  Lookingstate: string;
-  Lookingpostcode: any;
-  otherInfo:string;
-  CurrentAddress: string;
-  CurrentTown: string;
-  Currentstate: string;
-  Currentpostcode: any;
-  Message: string;
-  Country: string;
-  Addressname: string;
-  PropertyType: any ;
-  norooms: string;
-  PropertyCondition: string = "any";
-  ownership: string = "Freehold";
-  phonenumber:number;
-  nobathrooms: any;
-  noreception: string;
-  MinAmount: string;
-  MaxAmount: any;
-  active = true;
-  LookingStreetname:string;
-  latitude: any;
-  longitude: any;
-  features :any = "any";
-  LookingAddress:string;
-  result: any;
-  UserId: any;
-  Minrooms:any;
-  Maxrooms:any;
-  Minbathrooms:any;
-  Maxbathrooms:any = "any";
-  Minreception:any = "any";
-  Maxreception:any = "any";
-  username:any;
-  useremail:any;
-  userdob:any;
-  userphone:any;
-  usertitle:any;
-  PropertyFor:any;
-}
->>>>>>> 651bfc8cf0ef365f0c06fc4dd4780533889dee96
