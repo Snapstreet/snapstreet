@@ -4,11 +4,11 @@ import { StateServiceService } from "../state-service.service";
 import { listingBuyer } from "../Model/listingBuyer";
 import { Sort } from "@angular/material/sort";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-<<<<<<< HEAD
-import { param } from "jquery";
-=======
 
->>>>>>> 651bfc8cf0ef365f0c06fc4dd4780533889dee96
+import { param } from "jquery";
+
+
+
 @Component({
   selector: 'app-property-matches',
   templateUrl: './property-matches.component.html',
