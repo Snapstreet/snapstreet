@@ -1,0 +1,164 @@
+.own-porpety-text {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.owna-property-text {
+  font-size: 16px;
+  color: var(--light-blue-color);
+}
+
+.own-property-list {
+  padding-right: 15px;
+  padding-left: 0px;
+  text-align: justify;
+  font-weight: medium;
+}
+
+ul.own-property-list-style {
+  font-size: 15px;
+  text-align: justify;
+  list-style: none;
+}
+.own-property-image-text {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  font-size: 21px;
+  text-transform: capitalize;
+  color: var(--DARK-BLUE-COLOR);
+}
+
+.btn-own-property-offer {
+  width: 90%;
+  background-color: var(--DARK-BLUE-COLOR);
+  color: white;
+  text-transform: uppercase;
+  
+}
+
+.own-property-home-worth {
+  background-color: white;
+}
+
+.own-property-text-home-worth {
+  text-align: left;
+  margin-bottom: .5em;
+  color: var(--DARK-BLUE-COLOR);
+}
+
+.own-property-text-home-worth-ans {
+  text-align: left;
+  color: var(--light-blue-color);
+}
+
+.own-property-blog {
+  background-color: white;
+  padding-bottom: 5px;
+}
+
+.own-property-blog-heading {
+  font-size: 25px;
+  text-transform: uppercase;
+  
+  font-weight: 400;
+}
+
+
+.own-property-blogs-content-c1 {
+  text-align: left;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.own-property-blogs-content-c2 {
+  text-align: left;
+  font-size: 15px;
+
+}
+.own-property-blogs-content-c1-2 {
+  text-align: left;
+  margin: 0;
+  font-size: 16px;
+}
+.own-property-blogs-content-c2-2 {
+  text-align: left;
+  font-size: 15px;
+}
+hr {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid grey;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.own-property-last-image {
+  width: -webkit-fill-available;
+}
+
+.own-property-last-image-text {
+  text-align: left;
+  margin-left: 20px;
+  
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+
+li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-items: center;
+  color: var(--light-blue-color);
+}
+.Looking-property-image {
+  background-image: url("/assets/Images/image-new2.png");
+  height: 305px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 10px;
+
+}
+.looking-property-image-text {
+  position: relative;
+  /* top: 227px; */
+  position: relative;
+  top: 76%;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  font-size: 23px;
+  text-transform: capitalize;
+}
+.button-own-a-property {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vh;
+}
+.own-property-image
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading-nestimate
+{
+  color: var(--DARK-BLUE-COLOR);
+}
+.paragraph-color
+{
+  color: var(--light-blue-color);
+}
+
+.own-property-blogs-content.paragraph-color {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap:12px;
+}

@@ -1,0 +1,32 @@
+
+  <div class="social-login text-center" >
+    <h4>Login or <span class="color-signup">Sign up</span></h4>
+    <div class="social-button mt-4">
+    <button type="button" class="btn btn-facebook "  (click)="authService.FacebookAuth()">Facebook</button>
+        <button type="button" class="btn btn-google ml-4" (click)="authService.GoogleAuth()">Google+</button>
+    </div>
+    <form action="">
+    <div class="input-group mb-3 mt-3">
+        <div class="input-group-prepend">
+            <!-- <i class="fa fa-user input-group-text nav-login-form" aria-hidden="true"></i> -->
+        </div>
+        <input type="email" class="form-control" placeholder="Enter email" name="email"  #userEmail required>
+    </div>
+
+    <div class="input-group-prepend">
+        <!-- <i class="fa fa-lock input-group-text nav-login-form-password" aria-hidden="true"></i> -->
+        <input type="password" class="form-control" placeholder="Password"  name="password"
+             #userPassword required>
+    </div>
+
+    <div class="input-group-prepend other-option">
+        <!-- <label class="checkbox">
+            <input type="checkbox" value="remember-me">Remember Me
+        </label> -->
+        <a href="#" class="forgot-password" routerLink="/forgot-password">Forgot password?</a>
+    </div>
+    <button type="button" class="btn btn-social-login" (click)="authService.SignIn(userEmail.value,userPassword.value)">Login</button>
+    <button type="button" class="btn btn-social-login" (click)="authService.SignUp(userEmail.value,userPassword.value)">Sign Up</button>
+  </form>
+</div>
+

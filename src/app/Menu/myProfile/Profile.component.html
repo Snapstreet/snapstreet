@@ -1,0 +1,95 @@
+<mat-card>
+  <div *ngIf="user">
+    <div class="profile-wrapper-content">
+      <p class="profile-heading heading-nestimate">My Profile</p>
+      <div class="profile-name-image mt-4">
+        <img src="{{user.photoURL}}" class="rounded-circle Profile-pic"  *ngIf="photoURL">
+        <p class="profile-name heading-nestimate">{{ user.Name }}</p>
+        
+      </div>
+    </div>
+    <div class="profile-name-field-option">
+      <div class="grid-container">
+        <div>
+          <p class="fname-text1 heading-nestimate">Name</p>
+        </div>
+        <div class="profile-output">
+          <p class="fname-text2 outputText" *ngIf="user">{{ user.Name }}</p>
+          <a routerLink="/editprofile" class="outputText">Edit</a>
+        </div>
+      <div>
+      
+      </div>
+      </div>
+
+      <div class="grid-container">
+        <div>
+          <p class="fname-text1 heading-nestimate">Phone No</p>
+        </div>
+        <div class="profile-output">
+          <p class="fname-text2 outputText">{{user.Phone}}</p>
+          <a routerLink="/editprofile" class="outputText">Edit</a>
+        </div>
+  
+      </div>
+      <div class="grid-container">
+        <div>
+          <p class="fname-text1 heading-nestimate">Email Id</p>
+        </div>
+        <div class="profile-output">
+          <p class="fname-text2 outputText">
+
+            {{user.Email}} </p>
+            <a routerLink="/editprofile" class="outputText">Edit</a>
+        </div>
+      
+      </div>
+      <div class="grid-container">
+        <div class="profile-output">
+          <p class="fname-text1 heading-nestimate">Date of Birth</p>
+        </div>
+        <div class="profile-output">
+          <p class="fname-text2 outputText " >{{user.DOB | date :'longDate' }}</p>
+          <a routerLink="/editprofile" class="outputText">Edit</a>
+        </div>
+      
+      </div>
+
+      <div class="grid-container">
+        <div>
+          <p class="fname-text1 heading-nestimate">Address</p>
+        </div>
+        <div class="profile-output">
+          <p class="fname-text2 outputText " >{{user.Address}}</p>
+          <a routerLink="/editprofile" class="outputText">Edit</a>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <div class="prefrence-notification">
+    <h5 class="text-center notification-heading">Notification Prefrences</h5>
+    <div class="prefrence-radio">
+<form>
+<div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optradio"><p class="radio-text">Email for every match
+    </p></label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optradio"><p class="radio-text">Email me once a week with all the matches 
+      that I have
+    </p> </label>
+  </div>
+</form> 
+</div> 
+
+
+</div>
+
+
+</mat-card>

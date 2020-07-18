@@ -1,0 +1,820 @@
+<div class="container matches-main-container">
+
+
+  <mat-card class="thanku-section">
+    <img mat-card-image src="../../../../../../assets/Images/matched.jpg" class="match-image">
+  </mat-card>
+
+  <p class="mt-3 main-heading heading-nestimate" *ngIf="matchedProperties.length < 1"><span
+      class="outputText"></span>&nbsp;No Match Listing</p>
+  <p class="mt-3 main-heading heading-nestimate" *ngIf="matchedProperties.length > 0">You have<span
+      style="color:red">{{matchedProperties.length}}</span>&nbsp;&nbsp;Matched Nestimates created by<span
+      style="color:red"> Home Seekers</span></p>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Sort By</mat-label>
+      <mat-select name="ChainStatus" value="ChainStatus" class="example-full-width">
+        <mat-option value='Search Radius' (click)="matchedsearch()">Search Radius</mat-option>
+        <mat-option value='low' (click)="lowtohigh()">Price Range - Low to High</mat-option>
+        <mat-option value='high' (click)="hightoLow()">Price Range - High to Low</mat-option>
+        <mat-option value='date'>Listed date</mat-option>
+        <mat-option value='rooms' (click)="roomshightolow()">No of Rooms</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <!--Result Set One Price Match-->
+    <section class="" id="matchproperties" *ngIf="matchedProperties.length">
+      <div class="mat-card-content-new" *ngFor="let property of matchedProperties">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card>
+            <span class="heading-nestimate card-heading-font">Nestimate by {{property.detail.title}}
+              {{property.detail.username  | shortName}}</span>
+            <div class="heading-nestimate ">Result Set One with Price Range</div>
+          </mat-card>
+          <mat-card>
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+              {{property.detail.MaxAmount}}
+              /{{property.detail.Lookingpostcode}}
+              /{{property.detail.LookingStreetname}}
+              /{{property.detail.Position}}
+              /{{property.detail.PropertyType}}
+              /{{property.detail.Roomsmax}}
+              /{{property.detail.Ownership}}
+              /{{property.detail.Conditions}}
+                /{{property.detail.Maxbathroom}}
+                 /{{property.detail.Maxreception}}
+                /{{property.detail.features}}
+              /{{property.detail.UserId}}
+              /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="" id="matchproperties" *ngIf="matchedProperties.length">
+      <div class="mat-card-content-new" *ngFor="let property of matchedProperties">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+          <mat-card class="flex-expresses">
+            <div class="heading-nestimate card-heading-font">Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="Already heading-nestimate ">Interest Expressed</div>
+            <div class="heading-nestimate ">Result Set One with Price Range</div>
+          </mat-card>
+          <mat-card class="expressed-card">
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+              {{property.detail.MaxAmount}}
+              /{{property.detail.Lookingpostcode}}
+              /{{property.detail.LookingStreetname}}
+              /{{property.detail.Position}}
+              /{{property.detail.PropertyType}}
+              /{{property.detail.Roomsmax}}
+              /{{property.detail.Ownership}}
+              /{{property.detail.Conditions}}
+                /{{property.detail.Maxbathroom}}
+                 /{{property.detail.Maxreception}}
+                /{{property.detail.features}}
+              /{{property.detail.UserId}}
+              /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+
+      </div>
+    </section>
+    <!--Result Set One Price Match-->
+
+
+    <!--Price Math Logic-->
+    <section class="" id="matchproperties" *ngIf="prceMathLogic.length">
+      <div class="mat-card-content-new" *ngFor="let property of prceMathLogic">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card>
+            <span class="heading-nestimate card-heading-font">Nestimate by {{property.detail.title}}
+              {{property.detail.username  | shortName}}</span>
+            <div class="heading-nestimate ">Result Set One with Price Math Logic</div>
+          </mat-card>
+          <mat-card>
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+          {{property.detail.MaxAmount}}
+          /{{property.detail.Lookingpostcode}}
+          /{{property.detail.LookingStreetname}}
+          /{{property.detail.Position}}
+          /{{property.detail.PropertyType}}
+          /{{property.detail.Roomsmax}}
+          /{{property.detail.Ownership}}
+          /{{property.detail.Conditions}}
+            /{{property.detail.Maxbathroom}}
+             /{{property.detail.Maxreception}}
+            /{{property.detail.features}}
+          /{{property.detail.UserId}}
+          /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+
+      </div>
+    </section>
+    <section class="" id="matchproperties" *ngIf="prceMathLogic.length">
+      <div class="mat-card-content-new" *ngFor="let property of prceMathLogic">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+          <mat-card class="flex-expresses">
+            <div class="heading-nestimate card-heading-font">Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="Already heading-nestimate ">Interest Expressed</div>
+            <div class="heading-nestimate ">Result Set One with Price Math Logic</div>
+          </mat-card>
+          <mat-card class="expressed-card">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+          {{property.detail.MaxAmount}}
+          /{{property.detail.Lookingpostcode}}
+          /{{property.detail.LookingStreetname}}
+          /{{property.detail.Position}}
+          /{{property.detail.PropertyType}}
+          /{{property.detail.Roomsmax}}
+          /{{property.detail.Ownership}}
+          /{{property.detail.Conditions}}
+            /{{property.detail.Maxbathroom}}
+             /{{property.detail.Maxreception}}
+            /{{property.detail.features}}
+          /{{property.detail.UserId}}
+          /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+              </div>
+            </div>
+
+          </mat-card>
+        </div>
+
+      </div>
+    </section>
+    <!--Price Math Logic-->
+
+
+    <!--Result Set 2 with Matches-->
+    <section class="" id="matchproperties" *ngIf="settwo.length">
+      <div class="mat-card-content-new" *ngFor="let property of settwo">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card>
+            <span class="heading-nestimate card-heading-font">Nestimate by {{property.detail.title}}
+              {{property.detail.username  | shortName}}</span>
+            <div class="heading-nestimate ">Result Set 2 with Matches</div>
+          </mat-card>
+          <mat-card>
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+          {{property.detail.MaxAmount}}
+          /{{property.detail.Lookingpostcode}}
+          /{{property.detail.LookingStreetname}}
+          /{{property.detail.Position}}
+          /{{property.detail.PropertyType}}
+          /{{property.detail.Roomsmax}}
+          /{{property.detail.Ownership}}
+          /{{property.detail.Conditions}}
+            /{{property.detail.Maxbathroom}}
+             /{{property.detail.Maxreception}}
+            /{{property.detail.features}}
+          /{{property.detail.UserId}}
+          /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+
+      </div>
+    </section>
+    <section class="" id="matchproperties" *ngIf="settwo.length">
+      <div class="mat-card-content-new" *ngFor="let property of settwo">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+          <mat-card class="flex-expresses">
+            <div class="heading-nestimate card-heading-font">Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="Already heading-nestimate ">Interest Expressed</div>
+            <div class="heading-nestimate ">Result Set 2 with Matches</div>
+          </mat-card>
+          <mat-card class="expressed-card">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+          {{property.detail.MaxAmount}}
+          /{{property.detail.Lookingpostcode}}
+          /{{property.detail.LookingStreetname}}
+          /{{property.detail.Position}}
+          /{{property.detail.PropertyType}}
+          /{{property.detail.Roomsmax}}
+          /{{property.detail.Ownership}}
+          /{{property.detail.Conditions}}
+            /{{property.detail.Maxbathroom}}
+             /{{property.detail.Maxreception}}
+            /{{property.detail.features}}
+          /{{property.detail.UserId}}
+          /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+              </div>
+            </div>
+
+          </mat-card>
+        </div>
+
+      </div>
+    </section>
+    <!--Result Set 2 with Matches-->
+
+
+
+
+
+
+
+
+    <section id="youmaylike">
+      <div class="other-container">
+        <p class="mt-3 main-heading heading-nestimate"><span clas="outputText"></span>Other Nestimates that may be of
+          interest to you</p>
+      </div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Sort By</mat-label>
+        <mat-select name="ChainStatus" class="example-full-width">
+
+          <mat-option value='Search Radius' (click)="unmatchedmatchedsearch()">Search Radius</mat-option>
+          <mat-option value='low' (click)="unmatchedlowtohigh()">Price Range - Low to High</mat-option>
+          <mat-option value='high' (click)="unmatchedhightoLow()">Price Range - High to Low</mat-option>
+          <mat-option value='date'>Listed date</mat-option>
+          <mat-option value='rooms' (click)="unmatchedroomshightolow()">No of Rooms</mat-option>
+          <mat-option value='distance' (click)="unmatcheddistance()">Distance</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
+
+<!--Result Set No Matches 1-->
+      <!--Not Expressed-->
+      <div class="mat-card-content-new" *ngFor="let property of unmatchedProperties">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card>
+            <span class="heading-nestimate card-heading-font">Nestimate by
+              {{property.detail.title}} {{property.detail.username | shortName}}
+            </span>
+            <div class="heading-nestimate ">Result Set 1 No Matches With Price Logic 1</div>
+          </mat-card>
+
+          <mat-card>
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+      {{property.detail.MaxAmount}}
+      /{{property.detail.Lookingpostcode}}
+      /{{property.detail.LookingStreetname}}
+      /{{property.detail.Position}}
+      /{{property.detail.PropertyType}}
+      /{{property.detail.Roomsmax}}
+      /{{property.detail.Ownership}}
+      /{{property.detail.Conditions}}
+        /{{property.detail.Maxbathroom}}
+         /{{property.detail.Maxreception}}
+        /{{property.detail.features}}
+      /{{property.detail.UserId}}
+      /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+      <!--Expressed-->
+      <div class="mat-card-content-new" *ngFor="let property of unmatchedProperties">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+
+          <mat-card class="flex-expresses">
+            <div class="heading-nestimate card-heading-font">Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="Already heading-nestimate ">Interest Expressed</div>
+            <div class="Already heading-nestimate ">Result Set 1 No Matches With Price Logic 1</div>
+          </mat-card>
+
+
+          <mat-card class="expressed-card">
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+      {{property.detail.MaxAmount}}
+      /{{property.detail.Lookingpostcode}}
+      /{{property.detail.LookingStreetname}}
+      /{{property.detail.Position}}
+      /{{property.detail.PropertyType}}
+      /{{property.detail.Roomsmax}}
+      /{{property.detail.Ownership}}
+      /{{property.detail.Conditions}}
+        /{{property.detail.Maxbathroom}}
+         /{{property.detail.Maxreception}}
+        /{{property.detail.features}}
+      /{{property.detail.UserId}}
+      /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+<!--Result Set No Matches 1-->
+
+
+<!--Result Set No Matches 2-->
+      <!--Not Expressed-->
+      <div class="mat-card-content-new" *ngFor="let property of unmatchedPriceLogic">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card>
+            <span class="heading-nestimate card-heading-font">Nestimate by
+              {{property.detail.title}} {{property.detail.username | shortName}}
+            </span>
+            <div class="heading-nestimate ">Result Set 1 No Matches With Price Logic 1</div>
+          </mat-card>
+
+          <mat-card>
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+      {{property.detail.MaxAmount}}
+      /{{property.detail.Lookingpostcode}}
+      /{{property.detail.LookingStreetname}}
+      /{{property.detail.Position}}
+      /{{property.detail.PropertyType}}
+      /{{property.detail.Roomsmax}}
+      /{{property.detail.Ownership}}
+      /{{property.detail.Conditions}}
+        /{{property.detail.Maxbathroom}}
+         /{{property.detail.Maxreception}}
+        /{{property.detail.features}}
+      /{{property.detail.UserId}}
+      /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+      <!--Expressed-->
+      <div class="mat-card-content-new" *ngFor="let property of unmatchedPriceLogic">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+
+          <mat-card class="flex-expresses">
+            <div class="heading-nestimate card-heading-font">Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="Already heading-nestimate ">Interest Expressed</div>
+            <div class="Already heading-nestimate ">Result Set 1 No Matches With Price Logic 1</div>
+          </mat-card>
+
+
+          <mat-card class="expressed-card">
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+      {{property.detail.MaxAmount}}
+      /{{property.detail.Lookingpostcode}}
+      /{{property.detail.LookingStreetname}}
+      /{{property.detail.Position}}
+      /{{property.detail.PropertyType}}
+      /{{property.detail.Roomsmax}}
+      /{{property.detail.Ownership}}
+      /{{property.detail.Conditions}}
+        /{{property.detail.Maxbathroom}}
+         /{{property.detail.Maxreception}}
+        /{{property.detail.features}}
+      /{{property.detail.UserId}}
+      /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+<!--Result Set No Matches 2-->
+
+<!--Result Set No Matches 4-->
+      <!--Not Expressed-->
+      <div class="mat-card-content-new" *ngFor="let property of lookTown">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card>
+            <span class="heading-nestimate card-heading-font">Nestimate by
+              {{property.detail.title}} {{property.detail.username | shortName}}
+            </span>
+            <div class="heading-nestimate ">Result Set 4 No Matches With Price  lookTown</div>
+          </mat-card>
+
+          <mat-card>
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+      {{property.detail.MaxAmount}}
+      /{{property.detail.Lookingpostcode}}
+      /{{property.detail.LookingStreetname}}
+      /{{property.detail.Position}}
+      /{{property.detail.PropertyType}}
+      /{{property.detail.Roomsmax}}
+      /{{property.detail.Ownership}}
+      /{{property.detail.Conditions}}
+        /{{property.detail.Maxbathroom}}
+         /{{property.detail.Maxreception}}
+        /{{property.detail.features}}
+      /{{property.detail.UserId}}
+      /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+      <!--Expressed-->
+      <div class="mat-card-content-new" *ngFor="let property of lookTown">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+
+          <mat-card class="flex-expresses">
+            <div class="heading-nestimate card-heading-font">Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="Already heading-nestimate ">Interest Expressed</div>
+            <div class="Already heading-nestimate ">Result Set 4 No Matches With Price  lookTown</div>
+          </mat-card>
+
+
+          <mat-card class="expressed-card">
+            <div class="mat-card-content-new-content">
+
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+
+              </div>
+
+              <div class="mat-card-content-text">
+
+                <div class="price-range">
+
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+
+                <div class="other-text">
+                  <p class="heading-nestimate">Chain Status:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+
+                <div class="button-container">
+
+                  <button type="button" class="btn btn-primary" routerLink='/SellerSelectedProperty/
+      {{property.detail.MaxAmount}}
+      /{{property.detail.Lookingpostcode}}
+      /{{property.detail.LookingStreetname}}
+      /{{property.detail.Position}}
+      /{{property.detail.PropertyType}}
+      /{{property.detail.Roomsmax}}
+      /{{property.detail.Ownership}}
+      /{{property.detail.Conditions}}
+        /{{property.detail.Maxbathroom}}
+         /{{property.detail.Maxreception}}
+        /{{property.detail.features}}
+      /{{property.detail.UserId}}
+      /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}'>See Details</button>
+                </div>
+
+
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+          </mat-card>
+        </div>
+      </div>
+<!--Result Set No Matches 4-->
+
+
+
+    </section>
+  </div>
+</div>

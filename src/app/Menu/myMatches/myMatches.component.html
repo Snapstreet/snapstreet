@@ -1,0 +1,407 @@
+<div class="container matches-main-container">
+  <p class="nestimate-heading heading-nestimate">Nestimates Activity</p>
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+
+    <mat-tab label="Your action needed">
+
+
+      <!--expressed-->
+      <!-- <div class="heading-nestimate actvity-headings" *ngIf="sellerProperty"> Confirmed By you </div> -->
+      <div class="mat-card-content-new" *ngFor="let property of sellerProperty">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+          <mat-card class="expressed">
+            <div class="expressed-text heading-nestimate">Interest Expressed</div>
+          </mat-card>
+          <mat-card class="mat-card mt-2 expressed"
+            *ngIf="property.detail.matchStatus=='confirm_interest' && property.detail.Entry=='Seller'">
+            <div class="mat-card-content-new-content" *ngIf="checkExpressForValue(property.propertyId)">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{property.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary"
+                    routerLink='/mymatchesselecteddetail/{{property.detail.Lookingpostcode}}/{{property.detail.LookingAddress}}/{{property.detail.Roomsmax}}/{{property.detail.PropertyCondition}}/{{property.detail.MaxAmount}}/{{property.detail.Lookingstate}}/{{property.detail.PropertyType}}/{{property.detail.ownership}}/{{property.detail.features}}/{{property.detail.matchStatus}}/{{property.propertyId}}/{{expressed}}/{{property.detail.UserId}}'>See
+                    Details</button>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- Not expressed-->
+      <!-- <div class="heading-nestimate actvity-headings" *ngIf="sellerProperty"> Confirmed By you </div> --> 
+      <div class="mat-card-content-new" *ngFor="let property of sellerProperty">
+
+        <div class="not_expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card class="mat-card mt-2"
+            *ngIf="property.detail.matchStatus=='confirm_interest' && property.detail.Entry=='Seller'">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{property.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary"
+                    routerLink='/mymatchesselecteddetail/{{property.detail.Lookingpostcode}}/{{property.detail.LookingAddress}}/{{property.detail.Roomsmax}}/{{property.detail.PropertyCondition}}/{{property.detail.MaxAmount}}/{{property.detail.Lookingstate}}/{{property.detail.PropertyType}}/{{property.detail.ownership}}/{{property.detail.features}}/{{property.detail.matchStatus}}/{{property.propertyId}}/{{expressed}}//{{property.detail.UserId}}'>See
+                    Details</button>
+
+
+
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+
+      <!--expressed  Buyer-->
+      <!-- <div class="heading-nestimate actvity-headings" *ngIf="sellerProperty"> Confirmed By you </div> -->
+      <div class="mat-card-content-new" *ngFor="let property of buyerProperty">
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+          <mat-card class="expressed"
+            *ngIf="property.detail.matchStatus=='confirm_interest' && property.detail.Entry=='Buyer'">
+            <div class="expressed-text heading-nestimate">Interest Expressed</div>
+          </mat-card>
+          <mat-card class="mat-card mt-2 expressed"
+            *ngIf="property.detail.matchStatus=='confirm_interest' && property.detail.Entry=='Buyer'">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}-
+                    &pound;{{property.detail.MinAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{property.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary" routerLink='/buyerSelcted/
+                {{property.detail.Lookingpostcode}}
+                /{{property.detail.ChainStatus}}
+                /{{property.detail.Conditions}}
+                /{{property.detail.SearchRadius}}
+                /{{property.detail.Position}}
+                /{{property.detail.MinAmount}}
+                /{{property.detail.MaxAmount}}
+                /{{property.detail.PropertyType}}
+                /{{property.propertyId}}
+                /{{expressed}}//{{property.detail.UserId}}'>See Details</button>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- Not expressed  Buyer-->
+      <!-- <div class="heading-nestimate actvity-headings" *ngIf="sellerProperty"> Confirmed By you </div> -->
+      <div class="mat-card-content-new" *ngFor="let property of buyerProperty">
+        <div class="not_expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <mat-card class="mat-card mt-2"
+            *ngIf="property.detail.matchStatus=='confirm_interest' && property.detail.Entry=='Buyer' ">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{property.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{property.detail.PropertyType}}</span></p>
+
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary" routerLink='/buyerSelcted/
+                 {{property.detail.Lookingpostcode}}
+                /{{property.detail.ChainStatus}}
+                /{{property.detail.Conditions}}
+                /{{property.detail.SearchRadius}}
+                /{{property.detail.Position}}
+                /{{property.detail.MinAmount}}
+                /{{property.detail.MaxAmount}}
+                /{{property.detail.PropertyType}}
+                /{{property.propertyId}}
+                /{{expressed}}/{{property.detail.UserId}}'>See Details</button>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+
+
+
+    <!--When Seller confirm in from nestimates-->
+      <!-- Not expressed  Buyer-->
+      <div class="mat-card-content-new" *ngFor="let propertys of buyerProperty">
+        <div class="not_expressed" *ngIf="!checkExpressForValue(propertys.propertyId)">
+          <mat-card class="mat-card mt-2" *ngIf="propertys.detail.matchStatuss=='confirm_interest'">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Desired Price</span> <br>
+                  <span class="outputText price-font">&pound;{{propertys.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{propertys.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{propertys.detail.Position}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary"
+                    routerLink="/BuyerConfirmedSelectedMatches/{{propertys.detail.Lookingpostcode}}/{{propertys.detail.MaxAmount}}/{{propertys.detail.Position}}/{{propertys.detail.ChainStatus}}/{{propertys.detail.Conditions}}/{{propertys.detail.SearchRadius}}/{{propertys.detail.Type}}/{{propertys.propertyId}}/{{expressed}}/{{propertys.detail.UserId}}">See
+                    Details</button>
+
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+      <!--expressed  Buyer-->
+      <div class="mat-card-content-new" *ngFor="let propertys of buyerProperty">
+        <div class="expressed" *ngIf="checkExpressForValue(propertys.propertyId)">
+          <mat-card class="expressed" *ngIf="propertys.detail.matchStatuss=='confirm_interest'">
+            <div class="expressed-text heading-nestimate">Interest Expressed</div>
+          </mat-card>
+          <mat-card class="mat-card mt-2 expressed" *ngIf="propertys.detail.matchStatuss=='confirm_interest'" >
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Desired Price</span> <br>
+                  <span class="outputText price-font">&pound;{{propertys.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{propertys.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{propertys.detail.Position}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary"
+                    routerLink="/BuyerConfirmedSelectedMatches/{{propertys.detail.Lookingpostcode}}/{{propertys.detail.MaxAmount}}/{{propertys.detail.Position}}/{{propertys.detail.ChainStatus}}/{{propertys.detail.Conditions}}/{{propertys.detail.SearchRadius}}/{{propertys.detail.Type}}/{{propertys.propertyId}}/{{expressed}}/{{propertys.detail.UserId}}">See
+                    Details</button>
+
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+
+
+      <!--When Buyer confirm in from nestimates-->
+      <!-- Not expressed  Buyer-->
+      <div class="mat-card-content-new" *ngFor="let propertys of buyerProperty">
+        <div class="not_expressed" *ngIf="!checkExpressForValue(propertys.propertyId)">
+          <mat-card class="mat-card mt-2" *ngIf="propertys.detail.matchStatu=='confirm_interest'">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Desired Price</span> <br>
+                  <span class="outputText price-font">&pound;{{propertys.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{propertys.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{propertys.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary"
+                    routerLink="/SellerConfirmedProperty/{{propertys.detail.LookingAddress}}/{{propertys.detail.Lookingpostcode}}/{{propertys.detail.Lookingstate}}/{{propertys.detail.MaxAmount}}/{{propertys.detail.PropertyCondition}}/{{propertys.detail.PropertyType}}/{{propertys.detail.UserId}}/{{propertys.detail.matchStatu}}/{{propertys.detail.ownership}}/{{propertys.propertyId}}/{{expressed}}">See
+                    Details</button>
+
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+      <!--expressed  Buyer-->
+      <div class="mat-card-content-new" *ngFor="let propertys of buyerProperty">
+        <div class="expressed" *ngIf="checkExpressForValue(propertys.propertyId)">
+          <mat-card class="expressed"*ngIf="propertys.detail.matchStatu=='confirm_interest'">
+            <div class="expressed-text heading-nestimate">Interest Expressed</div>
+          </mat-card>
+          <mat-card class="mat-card mt-2 expressed" *ngIf="propertys.detail.matchStatu=='confirm_interest'">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Desired Priceggg</span> <br>
+                  <span class="outputText price-font">&pound;{{propertys.detail.MaxAmount}}</span>
+                </div>
+                <div class="other-text">
+                  <p class="heading-nestimate">Postcode:<span
+                      class="outputText">{{propertys.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                  <p class="heading-nestimate">Poperty Type:<span
+                      class="outputText">{{propertys.detail.PropertyType}}</span></p>
+                </div>
+                <div class="button-container">
+                  <button type="button" class="btn btn-primary"
+                  routerLink="/SellerConfirmedProperty/{{propertys.detail.LookingAddress}}/{{propertys.detail.Lookingpostcode}}/{{propertys.detail.Lookingstate}}/{{propertys.detail.MaxAmount}}/{{propertys.detail.PropertyCondition}}/{{propertys.detail.PropertyType}}/{{propertys.detail.UserId}}/{{propertys.detail.matchStatu}}/{{propertys.detail.ownership}}/{{propertys.propertyId}}/{{expressed}}">See
+                    Details</button>
+
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+
+
+
+
+    </mat-tab>
+
+    <mat-tab label="Awaiting Response">
+
+
+
+
+      <!-- <div class="heading-nestimate actvity-headings">Confirmed by other party</div>  -->
+      <div class="mat-card-content-new" *ngFor="let buyerProperty of buyerProperty">
+        <!-- <mat-card>
+      <span class="heading-nestimate card-heading-font">Nestimate by</span>
+    </mat-card> -->
+        <mat-card class="mat-card mt-2" *ngIf="buyerProperty.detail.matchStatus=='pending'">
+          <div class="mat-card-content-new-content">
+            <div class="mat-card-content-image">
+              <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+            </div>
+            <div class="mat-card-content-text">
+              <div class="price-range">
+                <span class="heading-nestimate">Their Price Range</span> <br>
+                <span class="outputText price-font">&pound;{{buyerProperty.detail.PriceRange}}</span>
+              </div>
+              <div class="other-text">
+                <p class="heading-nestimate">Postcode:<span
+                    class="outputText">{{buyerProperty.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                <p class="heading-nestimate">Poperty Type:<span
+                    class="outputText">{{buyerProperty.detail.PropertyType}}</span></p>
+
+              </div>
+              <div class="button-container">
+                <button type="button" class="btn btn-primary" routerLink='/MyMatchesseller/
+           
+           {{buyerProperty.detail.Lookingpostcode}}
+           /{{buyerProperty.detail.FinancialPosition}}
+           /{{buyerProperty.detail.PropertyType}}
+           /{{buyerProperty.detail.Position}} 
+           /{{buyerProperty.detail.matchStatus}}'>See Details</button>
+
+
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+
+
+
+
+
+
+
+      <div class="mat-card-content-new" *ngFor="let property of sellerProperty">
+        <mat-card class="mat-card mt-2" *ngIf="property.detail.matchStatus=='pending'">
+          <div class="mat-card-content-new-content">
+            <div class="mat-card-content-image">
+              <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+            </div>
+            <div class="mat-card-content-text">
+              <div class="price-range">
+                <span class="heading-nestimate">Their Desired Price</span> <br>
+                <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+              </div>
+              <div class="other-text">
+                <p class="heading-nestimate">Postcode:<span
+                    class="outputText">{{property.detail.Lookingpostcode}}</span></p>&nbsp; &nbsp;
+                <p class="heading-nestimate">Poperty Type:<span
+                    class="outputText">{{property.detail.PropertyType}}</span></p>
+              </div>
+              <div class="button-container">
+                <button type="button" class="btn btn-primary"
+                  routerLink='/awaitingResponse/{{property.detail.Lookingpostcode}}/{{property.detail.LookingAddress}}/{{property.detail.PropertyCondition}}/{{property.detail.MaxAmount}}/{{property.detail.Lookingstate}}/{{property.detail.PropertyType}}/{{property.detail.ownership}}/{{property.detail.features}}/{{property.detail.matchStatus}}'>See
+                  Details</button>
+
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+
+
+
+    </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </mat-tab-group>
+</div>

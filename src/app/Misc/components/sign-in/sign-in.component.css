@@ -1,0 +1,78 @@
+.btn-facebook
+
+
+{
+ background-color: #244D93;
+ color: white;
+ width: 30%;
+    height: 35px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+.btn-google
+{
+    background-color: #DD4B33;
+    color: white;
+    width: 30%;
+    height: 35px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+.social-login h4
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+.social-button {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.color-signup
+{
+    color: #244D93;
+}
+.btn-social-login
+{
+    width: 100%;
+    background-color: #244D93;
+    color: white;
+    margin-top: 3%;
+    font-family: 'Open Sans', sans-serif;
+  
+}
+i.fa.fa-user.input-group-text.nav-login-form{
+  position: absolute;
+  font-size: 23px;
+  left: 0px;
+  width: 10%;
+  z-index: 10;
+  margin-top: -4%;
+}
+.social-login.text-center {
+  padding: 15px;
+}
+.checkbox
+{
+  background: none transparent;
+     border: none; 
+     border-left: none; 
+     border-right: none; 
+    cursor: pointer;
+    /* display: block; */
+    height: auto;
+    position: absolute;
+    top: none; 
+     left: none; 
+    right: 9px;
+     width: none; 
+    /* transition: all .2s; */
+    display: flex;
+    flex-direction: row;
+}

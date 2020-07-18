@@ -1,0 +1,55 @@
+<div *ngIf="isBuyer" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+<div *ngIf="isLoading" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+
+<div class="container confirm-main-container">
+  <div class="confirm-first-container mt-3">
+    <p class="confirm-page-heading heading-nestimate">Personal Details</p>
+    <table class="table">
+
+      <tbody>
+        <tr> 
+          <td class="details-p-headings heading-nestimate">Name:
+            <span class="output   outputText">&nbsp;{{user.Name}}</span></td>
+
+        </tr>
+        <tr>
+          <td class="details-p-headings heading-nestimate">Email Address:<span class="output   outputText">&nbsp;{{user.Email}}</span></td>
+
+        </tr>
+        <tr>
+          <td class="details-p-headings heading-nestimate">Date of Birth:<span
+              class="output   outputText">&nbsp;{{user.DOB | date :'longDate'}}</span></td>
+
+        </tr>
+        <tr>
+          <td class="details-p-headings heading-nestimate">Chain status:<span class="output   outputText">&nbsp;{{listingBuyer.ChainStatus}}</span>
+          </td>
+
+        </tr>
+        <tr>
+          <td class="details-p-headings heading-nestimate">Financial Position:<span
+              class="output   outputText">&nbsp;{{listingBuyer.FinancialPosition}} </span></td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+     
+
+
+
+  <div class="endind-button mt-5">
+    <button type="button" class="btn btn-back" routerLink="/fillFormBuyer/{{listingBuyer.Currentpostcode}}/{{listingBuyer.CurrentTown}}/{{listingBuyer.Currentstate}}/{{listingBuyer.Currentcountry}}/{{listingBuyer.Lookingpostcode}}/{{listingBuyer.LookingStreetname}}/{{listingBuyer.LookingTown}}/{{listingBuyer.Lookingstate}}/{{listingBuyer.Country}}/{{listingBuyer.FinancialPosition}}/{{listingBuyer.SearchRadius}}/{{listingBuyer.PropertyType}}/{{listingBuyer.Roommin}}/{{listingBuyer.Roomsmax}}/{{listingBuyer.MinAmount}}/{{listingBuyer.MaxAmount}}/{{listingBuyer.Validity}}/{{listingBuyer.Minbathroom}}/{{listingBuyer.Maxbathroom}}/{{listingBuyer.Minreception}}/{{listingBuyer.Maxreception}}/{{listingBuyer.Conditions}}/{{listingBuyer.Ownership}}/{{listingBuyer.CurrentAddress}}">Back</button>
+    <button type="button" class="btn btn-next" (click)="submitForm()">Submit</button>
+  </div>
+

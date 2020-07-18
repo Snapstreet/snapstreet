@@ -1,0 +1,110 @@
+.profile-main-container {
+  padding-right: 8px;
+  padding-left: 8px;
+  background-color: #EBEBEB;
+  padding-bottom: 60px;
+  margin: 0;
+}
+
+.Profile-pic {
+  width: 25%;
+
+}
+
+p.profile-heading {
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  font-size: 27px;
+  padding-top: 7px;
+}
+
+.profile-name-image {
+  display: flex;
+  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+.profile-name {
+  font-size: 25px;
+   
+
+}
+
+.profile-name-field-option {
+  background-color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-top: 30px;
+}
+
+.grid-container {
+  display: flex;
+  margin: 1em 0px;
+  flex-direction: column;
+  margin: 1em 0px;
+
+}
+
+.fname-text1 {
+  font-size: 20px;
+   
+
+}
+
+.fname-text2 {
+  font-size: 17px;
+   
+
+}
+
+.fname-text3 {
+  font-size: 15px;
+   
+
+}
+.prefrences-main-div
+{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.property-detail-h3
+{
+    font-family: 'Open Sans', sans-serif;
+ 
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0px 15px 0px;
+}
+.prefrence-notification
+{
+    background-color: white;
+    padding: 5px;
+}
+.prefrence-radio {
+    margin: 20px;
+}
+.notification-heading {
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: normal;
+}
+.radio-text
+{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400;
+    color:black;
+}
+p{
+  margin-bottom: 0px;
+}
+.profile-output {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}

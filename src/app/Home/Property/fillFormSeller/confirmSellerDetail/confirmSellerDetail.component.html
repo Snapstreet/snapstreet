@@ -1,0 +1,40 @@
+<!-- Loading spinner -->
+
+<div *ngIf="isBuyer" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div *ngIf="isLoading" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+<div class="container confirm-main-container">
+  <div class="confirm-first-container mt-3">
+    <p class="confirm-page-heading">Personal Details</p>
+    <table class="table">
+
+      <tbody>
+        <tr>
+          <td class="details-p-headings">Name:
+            <span class="output">&nbsp;{{user.Name}}</span></td>
+
+        </tr>
+        <tr>
+          <td class="details-p-headings">Email Address:<span class="output">&nbsp;{{user.email}}</span></td>
+
+        </tr>
+        <tr>
+          <td class="details-p-headings">Date of Birth:<span class="output">&nbsp;{{user.DOB  | date :'longDate'}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+
+  <div class="endind-button mt-5">
+    <button type="button" class="btn btn-back" routerLink="/fillformseller/{{listingSeller.Lookingpostcode}}/{{listingSeller.LookingAddress}}/{{listingSeller.LookingTown}}/{{listingSeller.Lookingstate}}/{{listingSeller.PropertyType}}/{{listingSeller.Maxrooms}}/{{listingSeller.MaxAmount}}/{{listingSeller.ownership}}/{{listingSeller.Maxbathrooms}}/{{listingSeller.Maxreception}}/{{listingSeller.PropertyCondition}}/{{listingSeller.Country}}">Back</button>
+    <button type="button" class="btn btn-next" (click)="submitForm()">Submit</button>
+  </div>
+</div>

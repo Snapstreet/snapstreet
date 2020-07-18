@@ -1,0 +1,79 @@
+
+<div class="agent-form">
+  <div class="agent-form-heading heading-nestimate">Agent SignUp Form</div>
+ <mat-card class="mat-card-item">
+
+  <div class="heading-signup heading-nestimate">Please fill your company details</div> 
+ </mat-card>   
+<mat-card class="mat-card-item">
+    <form>
+        <mat-form-field class="full-width">
+          <mat-label>Full name</mat-label>
+          <input matInput #first  name="fullname" [(ngModel)]="agentSignup.fullname">
+        </mat-form-field>
+
+
+        <mat-form-field class="full-width">
+            <mat-label>Company Name</mat-label>
+            <input matInput #first name="company"  [(ngModel)]="agentSignup.company">
+          </mat-form-field>
+
+
+          <div class="full-width mb-4">
+          <mat-option style="background-color: #F5F5F5;">
+            <input type="text" placeholder="Enter Postcode"
+              aria-label="Post Code" matInput [matAutocomplete]="autolooking"
+             name="postcode"  [(ngModel)]="agentSignup.postcode">
+            <mat-autocomplete autoActivesecondOption #autolooking="matAutocomplete">
+              <mat-option  [value]="item">
+              </mat-option>
+            </mat-autocomplete>
+          </mat-option>
+        </div>
+
+
+          <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <input matInput #first  name="address" [(ngModel)]="agentSignup.address">
+          </mat-form-field>
+
+
+          <mat-form-field class="full-width">
+            <mat-label>Job title</mat-label>
+            <input matInput #first  name="jobtitle" [(ngModel)]="agentSignup.jobtitle">
+          </mat-form-field>
+         
+
+          <mat-form-field class="full-width">
+            <mat-label>Phone Number</mat-label>
+            <input matInput #first name="phone" [(ngModel)]="agentSignup.phone" >
+          </mat-form-field>
+
+         
+          <mat-form-field class="full-width">
+            <mat-label>Email address</mat-label>
+            <input matInput #first name="email"  [(ngModel)]="agentSignup.email">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Sole Agency Fees</mat-label>
+            <input matInput #first  name="solefees" [(ngModel)]="agentSignup.solefees">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Multiple Agency Fees</mat-label>
+            <input matInput #first  name="multiplefees" [(ngModel)]="agentSignup.multiplefees">
+          </mat-form-field>
+          <label style="color:white">Upload Image</label>
+<div class="file-upload">
+    
+          <input type="file" name="fileToUpload" id="fileToUpload" (change)="upload($event)" accept=".png,.jpg"  name="image"  [(ngModel)]="image">
+      
+          
+</div>
+<div class="submit-button">
+<button mat-raised-button color="primary" (click)="submitForm()">Start My Free 3-Month Trial Now</button>
+</div>
+    </form>
+</mat-card>
+</div>

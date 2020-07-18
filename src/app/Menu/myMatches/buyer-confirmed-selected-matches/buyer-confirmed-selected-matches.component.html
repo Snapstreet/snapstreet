@@ -1,0 +1,97 @@
+<div *ngIf="isBuyerSelected" class="loading-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+  
+  <div class="property-selected-detail-background">
+    <div class="container property-detail-container">
+      <!-- <h3 class="property-detail-h3 heading-nestimate">{{title}} {{unNamed | shortName}}</h3> -->
+      <div class="wrapper-detail-container">
+        <div id="demo">
+          <img  src="assets/Images/single-nestimate.jpg" class="match-images">
+        </div>
+    
+    
+        <div class="streetname">
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">Pincode</mat-card-title>
+            <mat-card-subtitle class="details-output-p paragraph-color">{{Lookingpostcode}}</mat-card-subtitle>
+          </mat-card>
+          
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">Desired Price</mat-card-title>
+            <mat-card-subtitle class="details-output-p outputText">&pound;{{MaxAmount}}</mat-card-subtitle>
+          </mat-card>
+        
+    
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">Property type</mat-card-title>
+            <mat-card-subtitle class="details-output-p paragraph-color">{{Type}}</mat-card-subtitle>
+          </mat-card>
+    
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">ChainStatus</mat-card-title>
+            <mat-card-subtitle class="details-output-p paragraph-color">{{ChainStatus}}</mat-card-subtitle>
+            
+          </mat-card>
+  
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">Conditions</mat-card-title>
+            <mat-card-subtitle class="details-output-p paragraph-color">{{Conditions}}</mat-card-subtitle>
+            
+          </mat-card>
+  
+          
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">SearchRadius</mat-card-title>
+            <mat-card-subtitle class="details-output-p paragraph-color">{{SearchRadius}}</mat-card-subtitle>
+            
+          </mat-card>
+          <mat-card class="Mat-card-div">
+            <mat-card-title class="details-p-headings heading-nestimate">Position</mat-card-title>
+            <mat-card-subtitle class="details-output-p paragraph-color">{{Position}}</mat-card-subtitle>
+            
+          </mat-card>
+          
+          
+        
+        </div>
+        <div class="selected-button m-3">
+          <button mat-raised-button color="primary" *ngIf="expressed=='true'" disabled>Expressed</button>
+          <button mat-raised-button color="primary" *ngIf="expressed=='false'" (click)="addToExpressCollection()">Confirm  Interest</button>
+          <button mat-raised-button color="primary"  (click)="backClicked()">Back</button>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

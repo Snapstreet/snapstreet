@@ -1,0 +1,68 @@
+.cookies-heading {
+    display: flex;
+    font-size: 1.5em;
+    margin: 1em;
+}
+.content-cookies {
+    padding: 0em 1em;
+    text-align: justify;
+    word-break: break-all;
+}
+.content-cookies-light.content-cookies {
+    background-color: white;
+    padding: 1em;
+}
+.heading-nestimate.cookies-heading-prenfrence {
+    padding: 1em 0em;
+    font-size: 1.5em;
+}
+.checkbox-cookies {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0em;
+}
+.cookies-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.button-save {
+    padding: 0.5em 2em;
+    border: 1px solid var(--Darker-blue-color);
+    border-radius: 2em;
+    background-color: white;
+    font-size: 17px;
+    margin-bottom: 1em;
+}
+.outputText.accept-all {
+    border: 1px solid var(--Darker-blue-color);
+    padding: 0.5em 2em;
+    border-radius: 2em;
+    background-color: var(--DARK-BLUE-COLOR);
+    margin-bottom: 1em;
+}
+.button-save:hover
+{
+    background-color: var(--DARK-BLUE-COLOR);
+    color: white;
+}
+.expansion-discription {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.panel-font-heading{
+    font-size: 20px;
+    margin-right: 0px;
+    text-align: center;
+}
+.main-card-more {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.font-heading
+{
+    font-size: 20px;
+}

@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #F5F5F5;
+    height: auto;
+    overflow-x: hidden;
+}
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('assets/font/Segoe UI.woff') format('woff');
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --light-blue-color: #1EAAFA;
+
+    --DARK-BLUE-COLOR:  #0F3C73;
+
+     --Darker-blue-color : #50505a;
+     --BAckground-dark-color:rgb(223,223,223)
+
+  }
+
+  .heading-nestimate
+{
+  color: var(--DARK-BLUE-COLOR);
+  font-family: 'Roboto-Bold';
+}
+.paragraph-color
+{
+  color: var(--light-blue-color);
+  font-family: 'Roboto-Light';
+}
+.outputText
+{
+  color: var(--light-blue-color);
+  font-family: 'Roboto-Medium';
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url(./assets/font/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url(./assets/font/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url(./assets/font/Roboto-Medium.ttf);
+}
+
+.mat-radio-label-content
+{
+  font-family: 'Roboto-Medium';
+}
+.mat-select-panel .mat-option {
+  font-family: 'Roboto-Medium';
+  color:white;
+}
+.mat-tab-label-content
+{
+  font-family: 'Roboto-Bold';
+  color: var(--DARK-BLUE-COLOR);
+}
+.thanku-section {
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px !important;
+}
+input[type="tel"] {
+  -moz-appearance: textfield;
+}
+input[type="tel"]::-webkit-inner-spin-button, 
+input[type="tel"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.background-new-form
+{
+  background-color: var(--DARK-BLUE-COLOR);
+}
+.new-heading-nestimate
+{
+  color: white;
+}
+.mat-primary .mat-check.mat-option.mat-selected:not(.mat-option-disabled) {
+  border: 3px solid white;
+  border-radius: 2em;
+    margin: 1em 1em;
+
+}
+.dark-background
+{
+    background-color:  var(--BAckground-dark-color) !important;
+} 

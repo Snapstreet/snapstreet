@@ -1,0 +1,168 @@
+.property-detail-container
+{
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 9px;
+}
+.property-selected-detail-background
+{
+    background-image: url('/assets/Images/selectedPropertybackgroung.jpg');
+    background-position: center;
+    background-size: contain;
+}
+
+.wrapper-detail-container
+{
+   
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.property-detail-h3
+{
+    font-size: 24px;
+    text-align: center;
+    padding: 1em;
+}
+.streetname {
+    padding-top: 20px;
+}
+.details-p-headings
+{   
+    font-size: 17px;
+    margin-bottom: 0px !important;
+}
+.details-output-p
+{
+    font-size: 15px;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+ border-top: none;
+}
+.button-details {
+    display: flex;
+    /* justify-content: center; */
+  
+  
+    align-content: center;
+    margin-top: 70px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn-chat {
+    background-color: #244D93;
+    color: white;
+    width: 44%;
+    height: 35px;
+    font-size: 15px;
+}
+.button-ask
+{
+    background-color: #244D93;
+    color: white;
+    width: 50%;
+    height: 35px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+.carousel-item {
+    height: 170px;
+    background-size: cover;
+}
+.carousel-indicators li {
+    width: 13px;
+    height: 13px;
+    border-radius: 100%;
+}
+.selected-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+div#demo {
+    display: flex;
+    justify-content: center;
+}
+img.match-images {
+    width: 30%;
+}
+
+.Mat-card-div {
+    display: flex;
+    flex-direction: row;
+   
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px
+}
+.loading-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 9;
+    background: black;
+    opacity: 0.5;
+  }
+  .continue-form {
+    background-color: var(--light-blue-color);
+    height: 100vh;
+    width: 100vw;
+    top: 0vh;
+    position: fixed;
+    bottom: 0px;
+  }
+  .nestimate-logo {
+    display: flex;
+    justify-content: center;
+  }
+  img.nestimate-logo {
+    height: 22vh;
+    }
+  .overlay-text{
+    color: white;
+    font-family: 'Roboto-Medium';
+  }
+  
+  .overlay-text-third{
+    color: white;
+    font-family: 'Roboto-Medium';
+  }
+  .continue-text {
+    margin: 2em;
+    font-size: 17px;
+    text-align: left;
+  }
+  .continue-button-container
+  {
+    color: white;
+    font-family: 'Roboto-Medium';
+    font-size: 18px;
+  }
+  .continue-button-container {
+    display: flex;
+    justify-content: center;
+    border: 3px solid white;
+    margin: 0vh 15vw;
+    padding: 0.6em
+  }
+  .continue-form-data {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    justify-content: center;
+}
