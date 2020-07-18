@@ -121,7 +121,7 @@ p{
     z-index: 9;
     background: black;
     opacity: 0.5;
-=======
+}
 .profile-main-container
 {
     padding-right: 8px;
@@ -152,14 +152,11 @@ p.profile-heading {
 }
 .profile-name {
     font-size: 25px;
-   
-
 }
 .profile-name-field-option
 {
     background-color: white;
     padding-top: 20px;
-
     margin-top: 30px;
 }
 .grid-container {
@@ -170,24 +167,17 @@ p.profile-heading {
   
   .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
-
     padding: 0px 5px;
    
   }
   .fname-text1 {
     font-size: 20px;
-  
-
 }
 .fname-text2 {
     font-size: 20px;
-   
-
 }
 .fname-text3 {
     font-size: 15px;
-
-
 }
 
 .edit-profile-submitbutton {
@@ -202,7 +192,6 @@ p.profile-heading {
     width: 31%;
     color: white;
     font-size: 13px;
-   
 }
 p{
     margin-bottom: 0px;
@@ -244,5 +233,4 @@ p{
     z-index: 9;
     background: black;
     opacity: 0.5;
-
   }
