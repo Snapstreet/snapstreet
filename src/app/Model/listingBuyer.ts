@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 export class listingBuyer {
   key: string;
   Firstname: string;
@@ -61,67 +61,3 @@ export class listingBuyer {
   title:any;
   PropertyFor:any
 }
-=======
-export class listingBuyer {
-  key: string;
-  Firstname: string;
-  Lastname: string;
-  Email: string;
-  DOB: string;
-  Password: string;
-  Confirm: string;
-  financial: string;
-  ChainStatus: string = "First Time Buyer";
-  cars: string;
-  FinancialPosition: any ;
-  Type: string = "Buying to Live";
-  Position: string = "Cash Buyer";
-  CurrentAddress: string;
-  PropertyType: string = "Flat";
-  Country: string;
-  addressname: string;
-  Currentstate: string;
-  CurrentTown: string;
-  Currentpostcode: any;
-  Lookingpostcode: any;
-  LookingTown: any;
-  Lookingstate: any;
-  LookingAddress: any;
-  latitude: any;
-  longitude: any;
-  SearchRadius:  string  ="This postcode only";
-  PriceRange: any = 0;
-  Validity: any;
-  Conditions: any = "any";
-  Bcurrent: string;
-  Blooking: string;
-  MinAmount: string;
-  MaxAmount: string;
-  LookingStreetname:string;
-  phonenumber:number;
-  otherInfo:string;
-  active = true;
-  static title: string;
-  static Firstname: string;
-  result: any;
-  data: any;
-  static Lookingpostcode: string;
-  UserId : any;
-  Roomsmax;
-  Roommin:string;
-  Ownership:any = "any";
-  Minbathroom:any = "any";
-  Maxbathroom:any = "any";
-  Minreception:any= "any";
-  Maxreception:any = "any";
-  features:string = "any";
-  Currentcountry:string;
-  username:any;
-  useremail:any;
-  userdob:any;
-  userphone:any;
-  usertitle:any;
-  title:any;
-  PropertyFor:any;
-}
->>>>>>> 651bfc8cf0ef365f0c06fc4dd4780533889dee96
