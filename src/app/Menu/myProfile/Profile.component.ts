@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
 import { FormsService } from "../../Home/Property/fillFormBuyer/fillFormBuyer.service";
@@ -96,4 +95,4 @@ export class MyProfileComponent implements OnInit {
   }
   
 }
->>>>>>> 651bfc8cf0ef365f0c06fc4dd4780533889dee96
+
