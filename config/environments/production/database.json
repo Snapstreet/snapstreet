@@ -1,19 +1,19 @@
-{
-    "defaultConnection": "default",
-    "connections": {
-      "default": {
-        "connector": "bookshelf",
-        "settings": {
-          "client": "postgres",
-          "host": "snapstreet.c2j25w8zjbth.us-east-2.rds.amazonaws.com",
-          "port": "5432",
-          "database": "snapstreet",
-          "username": "snapstreet",
-          "password": "Property55"
-        },
-        "options": {
-          "ssl": false
-        }
-      }
-    }
-  }
+module.exports = ({ env }) => ({
+  defaultConnection: 'default',
+  connections: {
+    default: {
+      connector: 'bookshelf',
+      settings: {
+        client: 'postgres',
+        host: env('DATABASE_HOST', '127.0.0.1'),
+        port: env.int('DATABASE_PORT', 5432),
+        database: env('DATABASE_NAME', 'snapstreet'),
+        username: env('DATABASE_USERNAME', 'snapstreet'),
+        password: env('DATABASE_PASSWORD', 'Property55'),
+      },
+      options: {
+        ssl: false,
+      },
+    },
+  },
+});
