@@ -5,11 +5,11 @@
         "connector": "bookshelf",
         "settings": {
           "client": "postgres",
-          "host": "${process.env.DATABASE_HOST || '127.0.0.1'}",
-          "port": "${process.env.DATABASE_PORT || 27017}",
-          "database": "${process.env.DATABASE_NAME || 'strapi'}",
-          "username": "${process.env.DATABASE_USERNAME || ''}",
-          "password": "${process.env.DATABASE_PASSWORD || ''}"
+          "host": "snapstreet.c2j25w8zjbth.us-east-2.rds.amazonaws.com",
+          "port": "5432",
+          "database": "snapstreet",
+          "username": "snapstreet",
+          "password": "Property55"
         },
         "options": {
           "ssl": false
