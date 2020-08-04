@@ -1,0 +1,103 @@
+<div *ngIf="isBuyerSelected" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div class="property-selected-detail-background">
+  <div class="container property-detail-container">
+    <h3 class="property-detail-h3">{{title}} {{unNamed | shortName}}</h3>
+    <div class="wrapper-detail-container">
+      <div id="demo">
+        <img src="assets/Images/single-nestimate.jpg" class="match-images">
+      </div>
+
+
+      <div class="streetname">
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Desired Price</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{MaxAmount}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Postcode</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{Lookingpostcode}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Streetname</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{Lookingstate}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Property Type</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{PropertyType}}</mat-card-subtitle>
+        </mat-card>
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">No of Bedrooms</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{Maxrooms}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Ownership</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{ownership}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Property Condition</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{PropertyCondition}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">No of Bathrooms</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{Maxbathrooms}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">No of Reception Rooms</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{Maxreception}}</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card class="Mat-card-div">
+          <mat-card-title class="details-p-headings heading-nestimate">Property Features</mat-card-title>
+          <mat-card-subtitle class="details-output-p outputText">{{features}}</mat-card-subtitle>
+        </mat-card>
+
+
+
+
+        <div class="selected-button m-3">
+          <button mat-raised-button color="primary" (click)="backClicked()">Back</button>
+          <button mat-raised-button color="primary" (click)="Overlayopen()" *ngIf="expressed=='false'">Express Interest</button>
+          <!-- <button mat-raised-button color="primary"   *ngIf="expressed=='true'"disabled>Express Interest</button> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="continue-form" *ngIf="overlay">
+
+    <div class="continue-form-data">
+      <div class="nestimate-logo">
+        <img src="../../../../assets/Images/single-nestimate.jpg" class="nestimate-logo">
+
+      </div>
+      <div class="continue-text">
+        <p class="overlay-text">Thank you.Please sit back as the seller will now receive a notificationof your
+          Nestimate.Depending upon their decision to pursue or decline,we will send you an update.Your personal details
+          will not be sahred will the seller however they will be shared with an estate agent selected by seller,if they
+          are interested to pursue your Nestimate</p>
+
+
+      </div>
+      <div class="continue-button" (click)="submitForm()">
+        <div class="continue-button-container">
+          OK
+        </div>
+
+        <div class=" continue-button mt-2" (click)="continueClose()">
+          <div class="continue-button-container">
+            CANCEL
+          </div>
+        </div>
+      </div>
+    </div>

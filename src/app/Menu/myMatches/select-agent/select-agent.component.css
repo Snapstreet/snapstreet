@@ -1,0 +1,57 @@
+.title-agent-selection {
+    text-align: center;
+    margin: 20px;
+}
+.note-agent-selection {
+    font-size: 17px;
+    text-align: justify;
+    margin-bottom: 2em;
+}
+/* .agent-selection-radiobutton-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+} */
+.agent-selection-name {
+    display: flex;
+    flex-direction: row;
+}
+.agent-selection-commision {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1em;
+}
+
+.agent-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-card{
+    display: flex;
+    justify-content: ali;
+    justify-content: center;
+    align-items: center;
+}
+.mandatory {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: justify;
+    font-size: 12px;
+}
+.mandatory-slide {
+    margin-left: 5px;
+}
+img.agent-image {
+    width: 95%;
+}
+.agent-selction.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1em;
+}
+.agent-address-section {
+    margin: 1em;
+}

@@ -1,0 +1,216 @@
+<div class="cookies-main-conatiner">
+    <div class="cookies-heading heading-nestimate">
+        Cookie Policy
+    </div>
+
+    <div class="content-cookies">
+
+        <p class="outputText">We use cookies and similar technologies on our websites and apps.</p>
+
+        <p class="outputText">A cookie is a piece of information placed on your device to remember something about you
+            or your device. We use cookies to distinguish you from other users and to remember your preferences and to
+            help us make your experience of our websites and apps better. We also use cookies to show you tailored
+            adverts (including on other websites) which are more relevant to your interests.</p>
+
+        <p class="outputText">Without these cookies, you will see advertising, but they may be irrelevant to you. We
+            need to use some ‘Necessary’ cookies to make our website work, and you can’t turn these off here. For
+            others, you can choose which categories we use by adjusting your preferences below.</p>
+
+        <p class="outputText">You can find out more about cookies by visiting <span
+                class="heading-nestimate">www.allaboutcookies.org</span> and <span class="heading-nestimate">
+                www.youronlinechoices.eu.</span></p>
+
+    </div>
+
+    <div class="content-cookies-light content-cookies">
+        <div class="heading-nestimate cookies-heading-prenfrence">Your cookie preferences</div>
+
+        <p class="outputText">We use cookies and similar technologies to improve your Zoopla experience, display
+            advertising more relevant to you and allow you to sign into Zoopla with your social media accounts.</p>
+        <p class="outputText">You can use the settings below to accept all cookies (which we recommend to give you the
+            best personalised online experience) or to enable specific categories of cookies. You can change your
+            settings at any time by returning to this page.</p>
+    </div>
+
+    <div class="content-cookies">
+
+        <div class="checkbox-cookies">
+            <mat-checkbox [(ngModel)]="checked" disabled>Necessary</mat-checkbox>
+            <mat-checkbox>Tailored advertising</mat-checkbox>
+            <mat-checkbox>Personalised experience</mat-checkbox>
+        </div>
+
+        <div class="cookies-button">
+            <div class="heading-nestimate button-save" (click)="closeCookie()" routerLink="/">Save my prefrences</div>
+
+            <div class="outputText accept-all" (click)="closeCookie()" routerLink="/">Accept all cookies</div>
+        </div>
+
+
+    </div>
+
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="heading-nestimate panel-font-heading">
+                Necessary
+            </mat-panel-title>
+            <mat-panel-description class="expansion-discription heading-nestimate ">
+                What's this?
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>We need to use some cookies to make our website work properly and enable you to use all its functions such as
+            the mortgage calculator, and you cannot turn them off on our website but if you disable these cookies in
+            your browser settings, our websites and apps will not work correctly. We also use some cookies that let you
+            use your social media details to log in to your account, and to count visitors to our website and where they
+            most like to go on the site. This helps us to improve its overall functionality and to get paid by
+            advertisers given we provide our services to our visitors without requesting payment from them.</p>
+
+        <mat-card>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Name:</div>
+                <div class="content-right outputText">&nbsp;abext</div>
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Purpose:<span class="outputText">&nbsp;Used by the tech team
+                        to release new website functionalities in a staged approach.</span> </div>
+
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Duration:</div>
+                <div class="content-right outputText">&nbsp;3 months</div>
+
+            </div>
+        </mat-card>
+
+        <mat-card class="mt-4">
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Name:</div>
+                <div class="content-right outputText">&nbsp; affordabilityCalculator</div>
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Purpose:<span class="outputText">&nbsp;Used to preserve the values you input to the affordability calculator between rental property listings</span> </div>
+
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Duration:</div>
+                <div class="content-right outputText">&nbsp;Forever</div>
+
+            </div>
+        </mat-card>
+        
+        <mat-card class="mt-4">
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Name:</div>
+                <div class="content-right outputText">&nbsp; affordabilityCalculator</div>
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Purpose:<span class="outputText">&nbsp;Used to preserve the values you input to the affordability calculator between rental property listings</span> </div>
+
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Duration:</div>
+                <div class="content-right outputText">&nbsp;1 year</div>
+
+            </div>
+        </mat-card>
+
+    </mat-expansion-panel>
+
+
+
+
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mt-3">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="heading-nestimate panel-font-heading">
+                Tailored advertising
+            </mat-panel-title>
+            <mat-panel-description class="expansion-discription heading-nestimate ">
+                What's this?
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Our advertising partners and we use advertising cookies so that we can work out what you’re interested in based on how you use our websites and apps and other websites. Accepting these cookies means you might see our adverts on other websites and social media platforms. You will also see other adverts which are more relevant to your interests. If you don’t accept these, you will still see untailored online advertising.</p>
+
+        <mat-card>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Name:</div>
+                <div class="content-right outputText">&nbsp;Google Ads</div>
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Purpose:<span class="outputText">&nbsp; Google Ads provides Zoopla with the ability to track pay-per-click advertising conversion.</span> </div>
+
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate" routerLink="/PrivacyPolicy">Privacy Policy</div>
+              
+
+            </div>
+        </mat-card>
+
+        <mat-card class="mt-4">
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Name:</div>
+                <div class="content-right outputText">&nbsp;AddThis</div>
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Purpose:<span class="outputText">&nbsp;AddThis provides easy social media bookmarking on our platform.</span> </div>
+
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate" routerLink="/PrivacyPolicy">Privacy Policy</div>
+
+            </div>
+        </mat-card>
+        
+        <mat-card class="mt-4">
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Name:</div>
+                <div class="content-right outputText">&nbsp;Facebook</div>
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate">Purpose:<span class="outputText">&nbsp;Facebook is used as one of our trusted social media integration. Together with Facebook, we gather data on pages viewed and actions completed to make property recommendations via advertisements when browsing Facebook.</span> </div>
+
+
+            </div>
+            <div class="main-card-more">
+                <div class="heading-left heading-nestimate" routerLink="/PrivacyPolicy">Privacy Policy</div>
+
+            </div>
+        </mat-card>
+
+    </mat-expansion-panel>
+
+
+    <mat-card class="mt-3">
+  <div class="heading-nestimate font-heading">Personalised experience</div>
+  <div class="outputText">We use functional cookies to improve and personalise your experience on our websites and apps. We think these enhance your experience of using our services.</div>
+    </mat-card>
+
+
+
+    <mat-card class="mt-3">
+        <div class="heading-nestimate font-heading">Refusing or withdrawing your consent to the use of cookies</div>
+        <div class="outputText mt-2">You don't have to give consent to all our cookies. You can refuse consent by selecting only the categories of cookies you want us to use on this page, by adjusting your browser settings, or by using our website in "incognito" or "private" mode.</div>
+        <div class="outputText mt-2">If you adjust your browser settings or use our website in "incognito" or "private" mode, you'll also refuse essential cookies and so some parts of our website or apps might not work as well as they otherwise would.</div>
+          </mat-card>
+
+
+          <mat-card class="mt-3 mb-3">
+            <div class="heading-nestimate font-heading">Updates to this policy</div>
+            <div class="outputText mt-2">We change the cookies we use from time to time as we try to make our websites and apps even better. We'll do our best to update this page when we make changes, so make sure you check back regularly.</div>
+
+              </mat-card>
+
+</div>

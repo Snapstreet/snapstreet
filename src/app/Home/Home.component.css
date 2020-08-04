@@ -1,0 +1,342 @@
+.back {
+  background-image: url(/assets/Images/home.jpeg);
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.upper-back {
+  background-color: black;
+  width: 100%;
+  height: 250px;
+  opacity: 0.5;
+}
+.upper-button {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  z-index: 100;
+  position: relative;
+  top: -145px;
+}
+
+.home-button {
+  background-color:var(--light-blue-color);
+  color: white;
+  width: 35%;
+}
+.home-button-SELL
+{
+  background-color: var(--DARK-BLUE-COLOR);
+  color: white;
+  width: 35%;
+}
+
+.home-text-font {
+ 
+
+  margin-bottom: 0.5rem;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+  border: none;
+}
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 9;
+  background: black;
+  opacity: 0.5;
+}
+.how_does_it_work_steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+img.step-mage {
+  width: 33%;
+  margin: 14px;
+}
+p.step-text {
+  text-align: center;
+  color: var(--DARK-BLUE-COLOR)
+}
+
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0px;
+}
+@media only screen and (min-width:768px)
+{
+  .icon-size
+  {
+    width: 50% !important;
+  }
+}
+.cookies-policy {
+  background-color: RGB( 80 80 90);
+position: absolute;
+  padding: 3px;
+  position: fixed;
+bottom: 0px;
+z-index: 1;
+}
+.policy-content {
+  margin: 13px;
+  text-align: justify;
+}
+.policy-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 13px;
+}
+p
+{
+  margin-bottom: 0px;
+}
+img.button-cross {
+  width: 17px;
+}
+.custom-button-first {
+  border: 2px solid  var(--light-blue-color);
+  padding: 8px;
+  border-radius: 5px;
+  width: 50%;
+  flex-direction: inherit;
+    display: flex;
+    justify-content: space-around;
+   
+}
+.blue-circle {
+  padding: 5px;
+  border: 2px solid var(--light-blue-color);
+  border-radius: 50%;
+  width: 17%;
+}
+.custom-text {
+  font-size: 16px;
+  font-family: 'Roboto-Bold';
+}
+.upper-custom-button {
+  display: flex;
+  justify-content: center;
+}
+.create-nestimate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  background-color:var(--DARK-BLUE-COLOR);
+  padding: 7px;
+  border-radius: 5px;
+  width: 90%;
+}
+img.button-image {
+  width: 50%;
+}
+.text-create-nestimate
+{
+  color: white;
+}
+.large-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+p.i-am {
+  /* text-align: center; */
+  width: 60%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: 'Roboto-Bold';
+}
+.custom-button-first:hover
+{
+  cursor: pointer;
+}
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid var(--light-blue-color);
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  background-color: var(--DARK-BLUE-COLOR);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+  border-radius: 50%;
+}
+label
+{
+  margin-bottom: 0px !important;
+}
+.slider-image
+{
+  width: 100%;
+  height: 250px;
+}
+
+@media screen and (min-width:701px)
+{
+  .slider-image
+{
+
+  height: 82vh;
+}
+.radio-cn {
+  position: absolute;
+  bottom: 18vh;
+  right: 3vw;
+}
+.cookies-policy {
+
+  width: 100vw;
+}
+}
+.light{
+  font-style: italic;
+  color: var(--light-blue-color);
+}
+.text-over-image {
+  /* position: absolute; */
+  position: relative;
+  /* bottom: 50vh; */
+  top: -8vh;
+  /* bottom: 50vh; */
+  text-align: center;
+  z-index: 1;
+  font-size: 20px;
+}
+.radio-cn.mat-card {
+
+  background-color: var(--BAckground-dark-color);
+}
+p.text-over-image-second {
+  position: absolute;
+  top: 2vh;
+  color: white;
+  font-size: 22px;
+  font-family: 'Roboto-Bold';
+}
+.second-card
+{
+  background-color: var(--BAckground-dark-color); 
+}
+p.slider-text.heading-nestimate {
+  text-align: center;
+  margin-top: 4px;
+}
+.card-steps
+{
+  background-color:  var(--BAckground-dark-color);
+}
+  .heading-nestimate-font{
+  font-size: 22px;
+}
+.top-button-cookies {
+  text-align: center;
+  /* height: 7vh; */
+  color: white;
+  border: 4px solid #81C2FD;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 5px;
+
+}
+.lower-button
+{
+  background-color: #6DDDB7;
+  border: none;
+  color: black;
+}
+.agent-form {
+  display: flex;
+  /* width: 100%; */
+  justify-content: center;
+  margin: 1em;
+}
+.listing-heading {
+  margin: 1em;
+}
+.to-buy {
+  margin: 0em 0.5em;
+}

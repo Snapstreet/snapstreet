@@ -1,0 +1,155 @@
+
+<div class="main-grid-notifucation">
+<div class="grid-item" *ngFor="let confirmInterest of confirmInterest" >
+
+<div class="notification read-notfication" *ngIf="confirmInterest.Detail.Type == 'Buyer_Confirmed' && confirmInterest.Detail.Lastseen == null"  (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon" >
+<img src="../../../assets/Images/file.png" class="icon">
+ </div>
+ <div class="text heading-nestimate" >
+A Buyer expressed insterest on your Nestimate.Click to review<br>
+<span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+    {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+   <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+      {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+    <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+          {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="notification " *ngIf="confirmInterest.Detail.Type == 'Buyer_Confirmed' && confirmInterest.Detail.Lastseen != null"  (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+  <div class="notification-icon" >
+<img src="../../../assets/Images/file.png" class="icon">
+</div>
+<div class="text heading-nestimate" >
+A Buyer expressed insterest on your Nestimate.Click to review<br>
+<span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+  {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+ <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+    {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+  <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+        {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+</div>
+
+
+
+
+
+</div>
+
+
+
+   
+    <div class="notification read-notfication" *ngIf="confirmInterest.Detail.Type == 'Seller_Matches_Confirmed' && confirmInterest.Detail.Lastseen == null" (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon" >
+   <img src="../../../assets/Images/delete.png" class="icon">
+    </div>
+    <div class="text heading-nestimate">
+        A Buyer confirmed insterest on your Nestimate.Click Review<br>
+        <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+            {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+           <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+              {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+            <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+                  {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+   </div>
+   
+   </div>
+   <div class="notification " *ngIf="confirmInterest.Detail.Type == 'Seller_Matches_Confirmed' && confirmInterest.Detail.Lastseen != null"  (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon" >
+   <img src="../../../assets/Images/delete.png" class="icon">
+    </div>
+    <div class="text heading-nestimate">
+        A Buyer confirmed insterest on your Nestimate.Click Review<br>
+        <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+            {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+           <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+              {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+            <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+                  {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+   </div>
+   
+   </div>
+
+
+
+   
+   <div class="notification read-notfication" *ngIf="confirmInterest.Detail.Type == 'Seller_Confirmed' && confirmInterest.Detail.Lastseen == null" (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon">
+   <img src="../../../assets/Images/file.png" class="icon">
+    </div>
+    <div class="text heading-nestimate">
+   A seller expressed interest on your Nestimate.Click to Review<br>
+   
+   <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+    {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+   <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+      {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+    <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+          {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+   </div>
+   
+
+   </div> 
+   <div class="notification " *ngIf="confirmInterest.Detail.Type == 'Seller_Confirmed' && confirmInterest.Detail.Lastseen != null" (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon">
+   <img src="../../../assets/Images/file.png" class="icon">
+    </div>
+    <div class="text heading-nestimate">
+   A seller expressed interest on your Nestimate.Click to Review<br>
+   
+   <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+    {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+   <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+      {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+    <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+          {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+   </div>
+   
+
+   </div> 
+
+
+
+    <div class="notification read-notfication" *ngIf="confirmInterest.Detail.Type == 'Agent_Matches_Confirmed' &&  confirmInterest.Detail.Lastseen == null" (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon" >
+   <img src="../../../assets/Images/delete.png" class="icon">
+    </div>
+    <div class="text heading-nestimate">
+
+        A Seller confirmed interest on your Nestimate.Click to review<br>
+         <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+  {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+ <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+    {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+  <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+        {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+   </div>
+   
+   </div>
+
+
+   <div class="notification " *ngIf="confirmInterest.Detail.Type == 'Agent_Matches_Confirmed'  &&  confirmInterest.Detail.Lastseen != null" (click)="getDocid(confirmInterest.id,confirmInterest.Detail.propertyId,confirmInterest.Detail.time,confirmInterest.Detail.userId,confirmInterest.Detail.viewed,now,confirmInterest.Detail.Type)">
+    <div class="notification-icon" >
+   <img src="../../../assets/Images/delete.png" class="icon">
+    </div>
+    <div class="text heading-nestimate ">
+
+        A Seller confirmed interest on your Nestimate.Click to review<br>
+         <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') < 24">
+  {{confirmInterest.Detail.time.seconds * 1000 | date:'H'}} hours ago</span> 
+ <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'H') > 25">
+    {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM'}} </span> 
+  <span class="timing-in-hours" *ngIf="(confirmInterest.Detail.time.seconds * 1000 | date:'yyy') != (now | date:'yyyy') ">
+        {{confirmInterest.Detail.time.seconds * 1000 | date:'dd/MM/yyy'}} </span> 
+   </div>
+   
+   </div>
+</div>
+</div>

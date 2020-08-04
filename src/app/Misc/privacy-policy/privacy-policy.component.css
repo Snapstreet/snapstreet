@@ -1,0 +1,20 @@
+
+h5.main-privacy-heading {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0.7em;
+}
+.heading-privacy-policy-container {
+    border-bottom: 1px solid black;
+    margin: 0px 2em;
+}
+.privacy-policy-paragraph {
+    margin: 2em;
+    text-align: justify;
+}
+h5.paragraph-privacy-heading {
+    margin-bottom: 1em;
+}
+.privacy-policy-page {
+    background-color: white;
+}

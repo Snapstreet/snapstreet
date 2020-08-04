@@ -1,0 +1,136 @@
+.my-requirement-container
+{
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.my-requirement-one
+{
+    background-color: white;
+ 
+}
+.my-requirement-heading
+{
+    text-align: center;
+    font-size: 22px;
+}
+.area-p
+{
+    font-size:20px;
+    text-align: center;
+}
+.discription-p
+{
+    font-size: 12px;
+    margin-bottom: 0px !important;
+}
+
+.my-requirement-one {
+    text-align: center;
+}
+
+.mat-tab-label
+{
+    height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: .6;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    width: 100% !important;
+}
+div#demo {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    text-align: justify;
+}
+.match-images
+{
+    height: 19vh;
+}
+
+.mat-card-content-new-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+span.outputText.price-font {
+    font-size: 1.6em;
+}
+.other-text {
+    display: flex;
+    flex-direction: column;
+  
+    justify-content: center;
+}
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 1em;
+}
+span.heading-nestimate.card-heading-font {
+    text-align: left;
+    width: 100%;
+    font-size: 20px;
+}
+.mat-card-content-new {
+    margin-top: 1em;
+}
+/* .overflow-setting {
+
+    font-size: 14px;
+} */
+img.dust-bin {
+    height: 3vh;
+}
+.dust_price {
+    display: flex;
+    justify-content: space-between;
+
+}
+.heading-nestimate {
+    margin-bottom: 0em;
+}
+.dark-blue-button {
+    background-color: var(--DARK-BLUE-COLOR);
+    color: white;
+    padding: 0.3em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mat-cards
+{
+    background-color: #E9F8FF;
+    padding: 1em 0em;
+}
+.heading-cards {
+    padding-bottom: 0.8em;
+}
+span.entity-see-deatil.outputText {
+    padding-left: 1em;
+}
+.mat-card-content-text {
+    width: 85%;
+}
+.not-have-nestimate{
+background-color: var(--light-blue-color);
+  font-family: 'Roboto-Light';
+  margin-top: 1em;
+
+}
+.not-have-nestimate-content {
+    text-align: center;
+    color: white;
+    font-family: 'Roboto-Bold';
+    padding: 0.8em;
+}

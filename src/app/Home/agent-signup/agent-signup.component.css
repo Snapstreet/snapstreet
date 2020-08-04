@@ -1,0 +1,39 @@
+.agent-signup-background
+{
+    background-image: url('../../../assets/Images/rightbuilding.jpg');
+    height: 50vh;
+    width: 100%;
+    background-position: center;
+
+}
+
+.dark-button
+{
+    background-color: var( --DARK-BLUE-COLOR);
+    padding: 0.7em;
+    color: white;
+    width: 35%;
+    text-align: center;
+    margin: 1em;
+    margin-bottom: 0.5em;
+
+}
+
+.Light-button
+{
+    background-color: var( --light-blue-color);
+    padding: 0.7em;
+    color: white;
+    width: 35%;
+    text-align: center;
+    margin: 1em;
+    margin-top: 0.5em;
+}
+.extra-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: flex-end;
+    margin: 0em;
+  
+}

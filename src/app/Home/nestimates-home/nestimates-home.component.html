@@ -1,0 +1,144 @@
+<div class="my-requirement-container container">
+  
+  
+  <div class="nsetimate-home">
+    <div class="to-buy" *ngIf="propertyRequirementDetails.length>0">
+      <mat-card-title class="to-buy-title heading-nestimate">To Buy</mat-card-title>
+        <div class="mat-card-content-new" *ngFor="let requirement of propertyRequirementDetails" >
+       
+          <mat-card class="mat-card new-card">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+
+                <div class="dust_price">
+                <div class="price-range">
+                  <span class="heading-nestimate">Their Price Range</span> <br>
+                  <span class="outputText price-font">&pound;{{requirement.data.MinAmount}}     -     	&pound;{{requirement.data.MaxAmount}}</span>
+                </div>
+                <div class="dust-image">
+                  <img src="../../../assets/Images/dust.png" class="dust-bin" (click)="deletdeleteBuyer(requirement.id)">
+                </div>
+             
+              </div>
+
+
+
+
+              <div class="other-text">
+             
+                <p class="heading-nestimate">Poperty Type:<br><span
+                    class="outputText">{{requirement.data.PropertyType}}</span></p>
+              </div>
+             
+               
+              </div>
+            
+            </div>
+            <div class="button-container">
+              <button type="button" class="btn btn-primary" routerLink="/EditListingBuyer/{{requirement.data.Currentpostcode}}
+              /{{requirement.data.CurrentTown}}
+              /{{requirement.data.CurrentAddress}}
+              /{{requirement.data.Currentstate}}
+              /{{requirement.data.Currentcountry}}
+              /{{requirement.data.Lookingpostcode}}
+              /{{requirement.data.LookingStreetname}}
+              /{{requirement.data.LookingTown}}
+              /{{requirement.data.Lookingstate}}
+              /{{requirement.data.Country}}
+              /{{requirement.data.FinancialPosition}}
+              
+              /{{requirement.data.PropertyType}}
+              /{{requirement.data.Roommin}}
+              /{{requirement.data.Roomsmax}}
+              /{{requirement.data.MinAmount}}
+              /{{requirement.data.MaxAmount}}
+              /{{requirement.data.Validity}}
+              /{{requirement.data.Minbathroom}}
+              /{{requirement.data.Maxbathroom}}
+              /{{requirement.data.Minreception}}
+              /{{requirement.data.Maxreception}}
+              /{{requirement.data.Conditions}}
+              /{{requirement.data.Ownership}}
+              /{{requirement.data.features}}
+              /{{requirement.id}}">Edit</button>
+              <button type="button" class="btn btn-primary" routerLink="/buyerMatchlisting/{{requirement.data.Lookingpostcode}}/
+              {{requirement.data.PropertyType}}
+              /{{requirement.data.LookingTown}}
+              /{{requirement.data.MinAmount}}
+              /{{requirement.data.MaxAmount}}
+              /{{requirement.data.latitude}}
+              /{{requirement.data.longitude}}
+              /{{newUser}}
+              /{{requirement.data.PropertyFor}}
+              /{{requirement.data.LookingStreetname}}
+              /{{requirement.data.Conditions}}
+              /{{requirement.data.FinancialPosition}}
+              
+              /{{requirement.data.Validity}}
+              /{{requirement.data.Position}}
+              /{{requirement.data.UserId}}
+              /{{requirement.data.ChainStatus}}">Potential</button>
+              <button type="button" class="btn btn-primary" routerLink="/listingpropertydetail/{{requirement.data.MinAmount}}/{{requirement.data.MaxAmount}}/{{requirement.data.Lookingpostcode}}/{{requirement.data.ChainStatus}}/{{requirement.data.FinancialPosition}}/{{requirement.data.PropertyType}}/{{requirement.data.Position}}/{{requirement.data.MaxAmount}}">See Details</button>
+              
+            </div>
+          </mat-card>
+        </div>
+      </div>
+  
+  
+  
+  
+       <div class="to-sell" *ngIf="propertyDetails.length>0">
+       
+<mat-card-title class="to-sell-text">To Sell</mat-card-title>
+      
+        <div class="mat-card-content-new"  *ngFor="let property of propertyDetails"  >
+          
+          <mat-card class="mat-card new-cards">
+            <div class="mat-card-content-new-content">
+              <div class="mat-card-content-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <div class="mat-card-content-text">
+                <div class="dust_price">
+                <div class="price-range">
+                  <span class="heading-nestimate" (click)="openDialog()">Desired</span> <br>
+                  <span class="outputText price-font">&pound;{{property.seller.MaxAmount}}</span>
+                </div>
+                <div class="dust-image">
+                  <img src="../../../assets/Images/dust.png" class="dust-bin" (click)="deleteOrder(property.sellerId)">
+                </div>
+              </div>
+                <div class="other-text">
+                  <p class="heading-nestimate overflow-setting">Postcode:<br><span
+                      class="outputText">{{property.seller.Lookingpostcode}}</span></p>&nbsp;
+                  <p class="heading-nestimate overflow-setting">Poperty Type:<br><span
+                      class="outputText">{{property.seller.PropertyType}}</span></p>
+                </div>
+               
+                
+              </div>
+            </div>
+            <div class="button-container">
+              <button type="button" class="btn btn-primary" routerLink="/editListingSeller/{{property.seller.Lookingpostcode}}/{{property.seller.LookingAddress}}/{{property.seller.LookingTown}}/{{property.seller.Lookingstate}}/{{property.seller.PropertyType}}/{{property.seller.Maxrooms}}/{{property.seller.MaxAmount}}/{{property.seller.ownership}}/{{property.seller.Maxbathrooms}}/{{property.seller.Maxreception}}/{{property.seller.PropertyCondition}}/{{property.seller.Country}}/{{property.sellerId}}">Edit</button>
+              <button type="button" class="btn btn-primary" routerLink="/sellerMatchlisting/{{property.seller.Lookingpostcode}}/{{property.seller.PropertyType}}/{{property.seller.LookingTown}}/{{property.seller.MaxAmount}}/{{property.seller.latitude}}/{{property.seller.longitude}}/{{newUser}}/{{property.seller.PropertyFor}}/{{property.seller.Lookingstate}}/{{property.seller.Maxrooms}}/{{property.seller.PropertyCondition}}/{{property.seller.LookingAddress}}/{{property.seller.ownership}}/{{property.seller.features}}/{{property.seller.UserId}}/{{property.seller.Maxbathrooms}}/{{property.seller.Maxreception}}/{{property.seller.ownership}}/{{property.seller.Maxrooms}}">Potential</button>
+              <button type="button" class="btn btn-primary" routerLink="/listingsellerpropertydetail/{{property.seller.MaxAmount}}/{{property.seller.PropertyType}}/{{property.seller.Lookingpostcode}}/{{property.seller.Maxrooms}}/{{property.seller.Maxreception}}/{{property.seller.PropertyCondition}}/{{property.seller.Maxbathrooms}}">See Details</button>
+            </div>
+          </mat-card>
+
+        
+        </div>
+  
+      </div>
+  
+    </div>
+      
+      
+      
+ 
+  
+  </div>
+  

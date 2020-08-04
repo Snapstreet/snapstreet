@@ -1,0 +1,29 @@
+.background-plus
+{
+   background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 999;
+    width: 100vw;
+}
+
+.cards{
+    margin: 0px  30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 2em;
+    border: none;
+    box-shadow: none;
+}
+button.btn.btn-primary.button-plus {
+    padding: 0.5em  1em;
+}
+
+button.btn.btn-primary.button-plus-new {
+    padding: 0.5em 0.8em;
+}
+
+

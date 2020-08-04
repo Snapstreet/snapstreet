@@ -1,0 +1,148 @@
+<div class="agent-selected-detail-componet">
+
+<div class="agent-selected-detail-top-image">
+    <img src="assets/Images/sidelogo.png" class="match-images">
+ 
+
+</div>
+
+
+
+<!-- <div class="seller-detail-component mt-5">
+
+    <span class="heading-nestimate">
+    Seller Detail
+    </span>
+
+
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate">
+            Desired Price:       
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+            &pound;60000
+
+        </div>
+    </div>
+
+
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate" >
+            Postcode:             
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+            PO167GZ
+
+        </div>
+    </div>
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate">
+            No of Rooms:                   
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+           3
+
+        </div>
+    </div>
+
+  
+    <div class="address-field">
+        <div class="address-heading heading-nestimate">
+            Seller Address
+        </div>
+    
+        <div class="adddress-output outputText">
+            Hno Ak-47 Nirman Vihar 
+           Delhi. 
+        </div>
+    
+    
+        </div>
+</div> -->
+
+
+
+<div class="seller-detail-component mt-5 pb-3">
+
+    <span class="heading-nestimate">
+    Buyer Detail
+    </span>
+
+
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate">
+             Price Range:       
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+            &pound;{{Minamount}}  -   &pound;{{MaxAmount}}
+
+        </div>
+    </div>
+
+
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate" >
+            Postcode:             
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+            {{Lookinpostcode}}
+
+        </div>
+    </div>
+
+
+  
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate">
+           Property Condition:                   
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+          {{Conditions}}
+
+        </div>
+    </div>
+    <div class="seller-main-details">
+   
+        <div class="seller-left-side heading-nestimate">
+           Position                   
+
+        </div>
+
+
+        <div class="seller-right-side outputText">
+          {{ChainStatus}}
+
+        </div>
+    </div>
+    
+    
+</div>
+<div class="button-container">
+    <div class="dark-blue-button" (click)="backClicked()" >Back</div>
+  </div>
+</div>
+

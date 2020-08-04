@@ -1,0 +1,298 @@
+.back {
+  background-image: url(/assets/Images/handshake.jpg);
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.upper-back {
+  background-color: black;
+  width: 100%;
+  height: 250px;
+  opacity: 0.5;
+  
+}
+
+.upper-button {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  z-index: 100;
+  position: relative;
+  top: -145px;
+}
+
+.home-button {
+  background-color: #244D93;
+  color: white;
+  width: 35%;
+}
+
+
+
+.home-text-font {
+
+  color: #707070;
+  margin-bottom: 0.5rem;
+}
+
+.btn-facebook {
+  background-color: #244D93;
+  color: white;
+  width: 30%;
+  height: 35px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.btn-google {
+  background-color: #DD4B33;
+  color: white;
+  width: 30%;
+  height: 35px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
+
+.social-button {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.color-signup {
+  color: #244D93;
+}
+
+.btn-social-login {
+  width: 100%;
+  background-color: #244D93;
+  color: white;
+  margin-top: 3%;
+  border-radius: 19px;
+  padding: 0.5em;
+
+}
+
+i.fa.fa-user.input-group-text.nav-login-form {
+  position: absolute;
+  font-size: 23px;
+  left: 0px;
+  width: 10%;
+  z-index: 10;
+  margin-top: -4%;
+}
+
+.social-login.text-center {
+  padding: 15px;
+}
+
+.checkbox {
+  background: none transparent;
+  border: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  /* display: block; */
+  height: auto;
+  position: absolute;
+  top: none;
+  left: none;
+  right: 9px;
+  width: none;
+  /* transition: all .2s; */
+  display: flex;
+  flex-direction: row;
+
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+  border: none;
+}
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 9;
+  background: black;
+  opacity: 0.5;
+}
+
+.sign-in-main
+{
+  display: block;
+}
+.user-cross {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+img.button-cross {
+  position: absolute;
+  right: 0px;
+  margin: 0px 10px;
+  width: 16px;
+}
+.property-con-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  text-align: left;
+ 
+}
+.continue-form {
+  background-color: var(--light-blue-color);
+  /* position: absolute; */
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0vh;
+  z-index: 300;
+}
+.nestimate-logo {
+  display: flex;
+  justify-content: center;
+}
+img.nestimate-logo {
+  height: 22vh;
+  margin-top: 3vh;
+}
+.overlay-text{
+  color: white;
+  font-family: 'Roboto-Medium';
+}
+
+.overlay-text-third{
+  color: white;
+  font-family: 'Roboto-Medium';
+}
+.continue-text {
+  margin: 2em;
+  font-size: 17px;
+  text-align: left;
+}
+.continue-button-container
+{
+  color: white;
+  font-family: 'Roboto-Medium';
+  font-size: 18px;
+}
+.continue-button-container {
+  display: flex;
+  justify-content: center;
+  border: 3px solid white;
+  margin: 0vh 15vw;
+  padding: 0.6em;
+  z-index: 500;
+}
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.icon {
+  padding: 10px;
+  background: var( --DARK-BLUE-COLOR);
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid var( --DARK-BLUE-COLOR);
+}
+.input-group {
+ 
+
+  display: block;
+ 
+}
+
+.input-field:hover {
+  border: 2px solid var( --DARK-BLUE-COLOR);
+}
+.hyper:hover
+{
+  cursor: pointer;
+}
+.policy
+{
+  text-align: center;
+}
+
+
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+
+  line-height: 3rem;
+
+
+  pointer-events: none;
+  display: flex;
+  color: #aaa;
+  font-size: 22px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.form-control
+{
+  height: 7vh;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  margin-top: 1.5em;
+  
+    margin-bottom: 1rem;
+
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+}

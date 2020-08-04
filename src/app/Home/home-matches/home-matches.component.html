@@ -1,0 +1,1368 @@
+<!-- Loading spinner -->
+<!-- <div *ngIf="isLoading" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div> -->
+
+<div class="no-neestimate-found">
+
+  <div class="matches-main-container" *ngIf="Nestimate">
+
+
+    <mat-card class="thanku-section">
+      <img mat-card-image src="../../../../../../assets/Images/matched.jpg" class="match-image">
+    </mat-card>
+    <div class="home_Matches">
+      <div class="potential-things" *ngIf="MatchesItem < 2">
+        <!-- <p class="buyer-value heading-nestimate" *ngIf="buyerItems">{{buyerVal}}</p>
+      <p class="buyer-value heading-nestimate" *ngIf="sellerItem">{{sellerVal}}</p> -->
+      </div>
+      <mat-form-field class="example-full-width home-matches" *ngIf="MatchesItem > 1">
+        <mat-label style="color: white;"> Select Nestimates</mat-label>
+        <mat-select name="ChainStatus" class="example-full-width home-matches" value="selected" [(ngModel)]="test"
+          (click)="checkvalue()">
+          <mat-option [value]='buyerVal' *ngFor="let buyerproperty of propertyRequirementDetails"
+            (click)="getDetails(buyerproperty.data.Lookingpostcode,buyerproperty.data.PropertyFor,buyerproperty.data.PropertyType,buyerproperty.data.MinAmount,buyerproperty.data.MaxAmount,buyerproperty.data.LookingTown,buyerproperty.data.latitude,buyerproperty.data.longitude,buyerproperty.data.LookingStreetname,buyerproperty.data.Conditions,buyerproperty.data.ChainStatus,buyerproperty.data.FinancialPosition,buyerproperty.data.Validity,buyerproperty.data.Position,buyerproperty.data.UserId)">
+            Buyer _ {{buyerproperty.data.usertitle}}.{{buyerproperty.data.username | shortName}} _
+            {{buyerproperty.data.Lookingpostcode}}
+          </mat-option>
+
+
+
+
+          <mat-option [value]='sellerVal' value="selected" *ngFor="let sellerproperty of propertyDetails" (click)="getSellerDetails(sellerproperty.seller.Lookingpostcode,sellerproperty.seller.PropertyFor,sellerproperty.seller.PropertyType,
+          sellerproperty.seller.MaxAmount,sellerproperty.seller.LookingTown,
+          sellerproperty.seller.Lookingstate,sellerproperty.seller.Maxbathrooms,
+          sellerproperty.seller.PropertyCondition,sellerproperty.seller.LookingAddress,
+          sellerproperty.seller.ownership,sellerproperty.seller.features,
+          sellerproperty.seller.UserId,
+          sellerproperty.seller.Maxreception,
+          sellerproperty.seller.Maxrooms,
+          sellerproperty.seller.latitude,
+          sellerproperty.seller.longitude)">
+            Seller _ {{sellerproperty.seller.usertitle}}.{{sellerproperty.seller.username | shortName}} _
+            {{sellerproperty.seller.Lookingpostcode}}</mat-option>
+
+
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="Main-showing-div-buyer" *ngIf="buyer">
+      <!-- <p class="mt-3 main-heading heading-nestimate" *ngIf="matchedProperties.length < 1"><span
+          class="outputText"></span>&nbsp;No Match Listing(s)</p> -->
+      <div class="heading-nestimate font-main-nestimate ">Your search has the
+        following results</div>
+
+
+      <div class="nestiamte-dropdown-asearch-result">
+        <mat-form-field class="example-full-width home-matches">
+          <mat-label style="color:white">Sort By</mat-label>
+          <mat-select name="ChainStatus" value="ChainStatus" class="example-full-width home-matches">
+            <mat-option value='low' (click)="lowtohigh()">Price Range - Low to High</mat-option>
+            <mat-option value='high' (click)="hightoLow()">Price Range - High to Low</mat-option>
+            <mat-option value='date'>Listed date</mat-option>
+            <mat-option value='rooms' (click)="roomshightolow()">No of Rooms</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!--Result Set One with Price Range-->
+      <!--Not Expressed-->
+<div class="main-desktop-grid">
+
+
+      <div class="mat-card-content-new m" *ngFor="let property of matchedProperties">
+        <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+          <div class="nestimate_by">
+
+            <div class="card-heading-font outputText">&nbsp;Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="matches-mame">Same postcode only,PropertyType,PropertyFor,Matches price criteria (min reduce 3%
+              max +10%) </div>
+          </div>
+
+
+          <div class="netimate-content">
+            <div class="nestimate-image">
+              <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+            </div>
+            <span class="buy-option">
+              <div class="nestimate-price-range">
+                <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'buy'">Desired Price</span>
+                <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'rent'">Desired Rent </span>
+                <br>
+                <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+              </div>
+              <div class="nestimate-content">
+                <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                    class="outputText">{{property.distance | number:'1.1-1'}} Miles</span></div>
+                <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                    class="outputText">{{property.detail.Maxrooms}}</span></div>
+              </div>
+            </span>
+
+
+            <div class="button-container">
+              <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{property.detail.Lookingpostcode}}/
+                  {{property.detail.Lookingstate}}/
+                  {{property.detail.LookingTown}}/
+                  {{property.detail.PropertyCondition}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.LookingAddress}}/
+                  {{property.detail.ownership}}/
+                  {{property.detail.PropertyType}}/
+                  {{property.detail.features}}/
+              {{property.detail.UserId}}/
+              {{property.detail.Maxbathrooms}}/
+              {{property.detail.Maxrooms}}/
+              {{property.detail.Maxreception}}/
+              {{property.propertyId}}/{{expressed}}/{{property.detail.PropertyFor}}/{{Look_PropertyFor}}'>See
+                Details<span class="entity-see-deatil outputText">
+                  &gt;</span></div>
+            </div>
+
+
+          </div>
+        </div>
+  
+      <!--Expressed-->
+   
+        <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+          <div class="nestimate_by">
+
+            <div class="card-heading-font outputText">&nbsp;Nestimate by {{property.detail.usertitle}}
+              {{property.detail.username | shortName}}</div>
+            <div class="matches-mame">Same postcode only,PropertyType,PropertyFor,Matches price criteria (min reduce 3%
+              max +10%) </div>
+
+          </div>
+          <div class="netimate-content-expressed">
+
+            <div class="nestimate-image">
+              <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+            </div>
+            <span class="buy-option">
+              <div class="nestimate-price-range">
+                <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'buy'">Desired Price</span>
+                <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'rent'">Desired Rent </span>
+                <br>
+                <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+              </div>
+              <div class="nestimate-content">
+                <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                    class="outputText">{{property.distance | number:'1.1-1'}} Miles</span></div>
+                <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                    class="outputText">{{property.detail.Maxrooms}}</span></div>
+              </div>
+            </span>
+            <div class="button-container">
+              <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{property.detail.Lookingpostcode}}/
+                  {{property.detail.Lookingstate}}/
+                  {{property.detail.LookingTown}}/
+                  {{property.detail.PropertyCondition}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.LookingAddress}}/
+                  {{property.detail.ownership}}/
+                  {{property.detail.PropertyType}}/
+                  {{property.detail.features}}/
+              {{property.detail.UserId}}/
+              {{property.detail.Maxbathrooms}}/
+              {{property.detail.Maxrooms}}/
+              {{property.detail.Maxreception}}/
+              {{property.propertyId}}/{{expressed}}/{{property.detail.PropertyFor}}}/{{Look_PropertyFor}}'>See
+                Details<span class="entity-see-deatil outputText">
+                  &gt;</span></div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+   
+      <!--Result Set One with Price Range-->
+   
+
+
+
+
+
+
+
+
+       
+
+
+
+          <!--Result Set No Matches 1-->
+          <!--not Expressed-->
+        
+          <div class="mat-card-content-new" *ngFor="let property of unmatchedProperties">
+            <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame"> POSTCODE MATCH - FIRST 5 LETTERS ONLY
+                  - Matches price criteria (min reduce 3% max +10%)
+                  - Same property type</div>
+              </div>
+              <div class="netimate-content-no-matches">
+
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'buy'">Desired Price</span>
+                    <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'rent'">Desired Rent </span>
+                    <br>
+                    <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{property.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{property.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{property.detail.Lookingpostcode}}/
+                      {{property.detail.Lookingstate}}/
+                      {{property.detail.LookingTown}}/
+                      {{property.detail.PropertyCondition}}/
+                      {{property.detail.MaxAmount}}/
+                      {{property.detail.LookingAddress}}/
+                      {{property.detail.ownership}}/
+                      {{property.detail.PropertyType}}/
+                      {{property.detail.features}}/
+                  {{property.detail.UserId}}/
+                  {{property.detail.Maxbathrooms}}/
+                  {{property.detail.Maxrooms}}/
+                  {{property.detail.Maxreception}}/
+                  {{property.propertyId}}/{{expressed}}/{{property.detail.PropertyFor}}/{{Look_PropertyFor}}'>See
+                    Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+         
+            <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame"> POSTCODE MATCH - FIRST 5 LETTERS ONLY
+                  - Matches price criteria (min reduce 3% max +10%)
+                  - Same property type</div>
+              </div>
+              <div class="netimate-content-expressed">
+
+                <!-- <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'buy'">Desired Price</span>
+                    <span class="heading-nestimate" *ngIf="property.detail.PropertyFor == 'rent'">Desired Rent </span>
+                    <br>
+                    <span class="outputText price-font">&pound;{{property.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{property.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{property.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{property.detail.Lookingpostcode}}/
+                      {{property.detail.Lookingstate}}/
+                      {{property.detail.LookingTown}}/
+                      {{property.detail.PropertyCondition}}/
+                      {{property.detail.MaxAmount}}/
+                      {{property.detail.LookingAddress}}/
+                      {{property.detail.ownership}}/
+                      {{property.detail.PropertyType}}/
+                      {{property.detail.features}}/
+                  {{property.detail.UserId}}/
+                  {{property.detail.Maxbathrooms}}/
+                  {{property.detail.Maxrooms}}/
+                  {{property.detail.Maxreception}}/
+                  {{property.propertyId}}/{{expressed}}/{{property.detail.PropertyFor}}/{{Look_PropertyFor}}'>See
+                    Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+    
+          <!--Result Set No Matches End-->
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+          <!--Result Set No Matches 1-->
+          <!--not Expressed-->
+          <div class="mat-card-content-new" *ngFor="let propertyPrice of unmatchedPriceLogic">
+            <div class="not-expressed" *ngIf="!checkExpressForValue(propertyPrice.propertyId)">
+
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame">POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                  - Matches price criteria (min reduce 3% max +10%)
+                  - Same property type</div>
+
+
+              </div>
+              <div class="netimate-content-no-matches">
+                <!-- 
+                    <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option" *ngIf="propertyPrice.detail.PropertyFor == 'buy'">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="propertyPrice.detail.PropertyFor == 'buy'">Desired
+                      Price</span>
+                    <span class="heading-nestimate" *ngIf="propertyPrice.detail.PropertyFor == 'rent'">Desired
+                      Rent</span> <br>
+                    <span class="outputText price-font">&pound;{{propertyPrice.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{propertyPrice.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{propertyPrice.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{propertyPrice.detail.Lookingpostcode}}/
+        {{propertyPrice.detail.Lookingstate}}/
+        {{propertyPrice.detail.LookingTown}}/
+        {{propertyPrice.detail.PropertyCondition}}/
+        {{propertyPrice.detail.MaxAmount}}/
+        {{propertyPrice.detail.LookingAddress}}/
+        {{propertyPrice.detail.ownership}}/
+        {{propertyPrice.detail.PropertyType}}/
+        {{propertyPrice.detail.features}}/
+    {{propertyPrice.detail.UserId}}/
+    {{propertyPrice.detail.Maxbathrooms}}/
+    {{propertyPrice.detail.Maxrooms}}/
+    {{propertyPrice.detail.Maxreception}}/
+    {{propertyPrice.propertyId}}/{{expressed}}/{{propertyPrice.detail.PropertyFor}}/{{Look_PropertyFor}}'>See
+                    Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+         
+            <div class="expressed" *ngIf="checkExpressForValue(propertyPrice.propertyId)">
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame"> POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                  - Matches price criteria (min reduce 3% max +10%)
+                  - Same property type</div>
+              </div>
+              <div class="netimate-content-expressed">
+
+                <!-- <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="propertyPrice.detail.PropertyFor == 'buy'">Desired
+                      Price</span>
+                    <span class="heading-nestimate" *ngIf="propertyPrice.detail.PropertyFor == 'rent'">Desired
+                      Rent</span> <br>
+                    <span class="outputText price-font">&pound;{{propertyPrice.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{propertyPrice.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{propertyPrice.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{propertyPrice.detail.Lookingpostcode}}/
+        {{propertyPrice.detail.Lookingstate}}/
+        {{propertyPrice.detail.LookingTown}}/
+        {{propertyPrice.detail.PropertyCondition}}/
+        {{propertyPrice.detail.MaxAmount}}/
+        {{propertyPrice.detail.LookingAddress}}/
+        {{propertyPrice.detail.ownership}}/
+        {{propertyPrice.detail.PropertyType}}/
+        {{propertyPrice.detail.features}}/
+    {{propertyPrice.detail.UserId}}/
+    {{propertyPrice.detail.Maxbathrooms}}/
+    {{propertyPrice.detail.Maxrooms}}/
+    {{propertyPrice.detail.Maxreception}}/
+    {{propertyPrice.propertyId}}/{{expressed}}/{{propertyPrice.detail.PropertyFor}}/{{Look_PropertyFor}}'>See
+                    Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <!-- unmatchedPriceLogic End-->
+        
+
+
+    
+
+          <!-- lookTown Set No Matches 4-->
+          <!--not Expressed-->
+ 
+          <div class="mat-card-content-new" *ngFor="let propertyTown of unmatchedallProperty">
+            <div class="not-expressed" *ngIf="!checkExpressForValue(propertyTown.propertyId)">
+
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame">
+                  - POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                  - Matches price criteria (min reduce 3% max +10%)
+                  - ALL property types
+                </div>
+              </div>
+              <div class="netimate-content-no-matches">
+                <!-- 
+                    <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="propertyTown.detail.PropertyFor == 'buy'">Desired
+                      Price</span>
+                    <span class="heading-nestimate" *ngIf="propertyTown.detail.PropertyFor == 'rent'">Desired Rent
+                    </span>
+                    <br>
+                    <span class="outputText price-font">&pound;{{propertyTown.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{propertyTown.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{propertyTown.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{propertyTown.detail.Lookingpostcode}}/
+                      {{propertyTown.detail.Lookingstate}}/
+                      {{propertyTown.detail.LookingTown}}/
+                      {{propertyTown.detail.PropertyCondition}}/
+                      {{propertyTown.detail.MaxAmount}}/
+                      {{propertyTown.detail.LookingAddress}}/
+                      {{propertyTown.detail.ownership}}/
+                      {{propertyTown.detail.PropertyType}}/
+                      {{propertyTown.detail.features}}/
+                  {{propertyTown.detail.UserId}}/
+                  {{propertyTown.detail.Maxbathrooms}}/
+                  {{propertyTown.detail.Maxrooms}}/
+                  {{propertyTown.detail.Maxreception}}/
+                  {{propertyTown.propertyId}}/{{expressed}}/{{propertyTown.detail.PropertyFor}}/{{Look_PropertyFor}}'>
+                    See Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+   
+            <div class="expressed" *ngIf="checkExpressForValue(propertyTown.propertyId)">
+
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame">
+                  - POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                  - Matches price criteria (min reduce 3% max +10%)
+                  - ALL property types
+                </div>
+              </div>
+              <div class="netimate-content-expressed">
+
+                <!-- <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="propertyTown .detail.PropertyFor == 'buy'">Desired
+                      Price</span>
+                    <span class="heading-nestimate" *ngIf="propertyTown .detail.PropertyFor == 'rent'">Desired Rent
+                    </span>
+                    <br>
+                    <span class="outputText price-font">&pound;{{propertyTown.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{propertyTown.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{propertyTown.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{propertyTown.detail.Lookingpostcode}}/
+                      {{propertyTown.detail.Lookingstate}}/
+                      {{propertyTown.detail.LookingTown}}/
+                      {{propertyTown.detail.PropertyCondition}}/
+                      {{propertyTown.detail.MaxAmount}}/
+                      {{propertyTown.detail.LookingAddress}}/
+                      {{propertyTown.detail.ownership}}/
+                      {{propertyTown.detail.PropertyType}}/
+                      {{propertyTown.detail.features}}/
+                  {{propertyTown.detail.UserId}}/
+                  {{propertyTown.detail.Maxbathrooms}}/
+                  {{propertyTown.detail.Maxrooms}}/
+                  {{propertyTown.detail.Maxreception}}/
+                  {{propertyTown.propertyId}}/{{expressed}}/{{propertyTown.detail.PropertyFor}}/{{Look_PropertyFor}}'>
+                    See Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+          <!-- lookTown Set  Matches End-->
+        
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+          <!-- lookTown Set No Matches 4-->
+          <!--not Expressed-->
+          <div class="mat-card-content-new" *ngFor="let propertyTown of lookTown">
+            <div class="not-expressed" *ngIf="!checkExpressForValue(propertyTown.propertyId)">
+
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame">
+                  - All other properties - Nationwide
+                </div>
+              </div>
+              <div class="netimate-content-no-matches">
+                <!-- 
+                    <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="propertyTown .detail.PropertyFor == 'buy'">Desired
+                      Price</span>
+                    <span class="heading-nestimate" *ngIf="propertyTown .detail.PropertyFor == 'rent'">Desired Rent
+                    </span>
+                    <br>
+                    <span class="outputText price-font">&pound;{{propertyTown.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{propertyTown.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{propertyTown.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{propertyTown.detail.Lookingpostcode}}/
+                      {{propertyTown.detail.Lookingstate}}/
+                      {{propertyTown.detail.LookingTown}}/
+                      {{propertyTown.detail.PropertyCondition}}/
+                      {{propertyTown.detail.MaxAmount}}/
+                      {{propertyTown.detail.LookingAddress}}/
+                      {{propertyTown.detail.ownership}}/
+                      {{propertyTown.detail.PropertyType}}/
+                      {{propertyTown.detail.features}}/
+                  {{propertyTown.detail.UserId}}/
+                  {{propertyTown.detail.Maxbathrooms}}/
+                  {{propertyTown.detail.Maxrooms}}/
+                  {{propertyTown.detail.Maxreception}}/
+                  {{propertyTown.propertyId}}/{{expressed}}/{{propertyTown.detail.PropertyFor}}/{{Look_PropertyFor}}'>
+                    See Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+         
+            <div class="expressed" *ngIf="checkExpressForValue(propertyTown.propertyId)">
+
+              <div class="nestimate_by">
+
+                <div class="card-heading-font outputText">&nbsp;Other Results</div>
+                <div class="matches-mame">
+                  - All other properties - Nationwide
+                </div>
+              </div>
+              <div class="netimate-content-expressed">
+
+                <!-- <div class="nestimate-image">
+                      <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                    </div> -->
+                <span class="buy-option">
+                  <div class="nestimate-price-range">
+                    <span class="heading-nestimate" *ngIf="propertyTown .detail.PropertyFor == 'buy'">Desired
+                      Price</span>
+                    <span class="heading-nestimate" *ngIf="propertyTown .detail.PropertyFor == 'rent'">Desired Rent
+                    </span>
+                    <br>
+                    <span class="outputText price-font">&pound;{{propertyTown.detail.MaxAmount}}</span>
+                  </div>
+                  <div class="nestimate-content">
+                    <div class="heading-nestimate nestimate-content-p1">Distance from Postcode:<span
+                        class="outputText">{{propertyTown.distance | number:'1.1-1'}} Miles</span></div>
+                    <div class="heading-nestimate nestimate-content-p1">No of Rooms:<span
+                        class="outputText">{{propertyTown.detail.Maxrooms}}</span></div>
+                  </div>
+                </span>
+                <div class="button-container">
+                  <div class="dark-blue-button" routerLink='/buyerSelectedPropertyDetail/{{Look_postcodes}}/{{Look_Streetname}}/{{Look_condition}}/{{Look_chainstatus}}/{{Look_FinancialPosition}}/{{Look_minamount}}/{{Look_maxamount}}/{{Look_Validity}}/{{Look_propertytype}}/{{Look_Position}}/{{Look_UserId}}/{{propertyTown.detail.Lookingpostcode}}/
+                      {{propertyTown.detail.Lookingstate}}/
+                      {{propertyTown.detail.LookingTown}}/
+                      {{propertyTown.detail.PropertyCondition}}/
+                      {{propertyTown.detail.MaxAmount}}/
+                      {{propertyTown.detail.LookingAddress}}/
+                      {{propertyTown.detail.ownership}}/
+                      {{propertyTown.detail.PropertyType}}/
+                      {{propertyTown.detail.features}}/
+                  {{propertyTown.detail.UserId}}/
+                  {{propertyTown.detail.Maxbathrooms}}/
+                  {{propertyTown.detail.Maxrooms}}/
+                  {{propertyTown.detail.Maxreception}}/
+                  {{propertyTown.propertyId}}/{{expressed}}/{{propertyTown.detail.PropertyFor}}/{{Look_PropertyFor}}'>
+                    See Details<span class="entity-see-deatil outputText">
+                      &gt;</span></div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <!-- lookTown Set  Matches End-->
+   
+   
+      </div>
+   
+    </div>
+
+
+    <!------------------------------Buyer Detail------------------------------------------------------------------------------------->
+
+
+
+
+
+
+    <!----------------------------------------------------Seller details----------------------------------------------------->
+    <div class="matches-main-container" *ngIf="seller">
+      <div class="heading-nestimate font-main-nestimate ">Your search has the
+        following results</div>
+
+      <div class="nestiamte-dropdown-asearch-result">
+        <mat-form-field class="example-full-width home-matches">
+          <mat-label style="color:white">Sort By</mat-label>
+          <mat-select name="ChainStatus" value="ChainStatus" class="example-full-width home-matches">
+            <mat-option value='low' (click)="lowtohigh()">Price Range - Low to High</mat-option>
+            <mat-option value='high' (click)="hightoLow()">Price Range - High to Low</mat-option>
+            <mat-option value='date'>Listed date</mat-option>
+            <mat-option value='rooms' (click)="roomshightolow()">No of Rooms</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+
+      <div class="main-desktop-grid">
+
+      <!--Result Set One Price Match-->
+   
+        <div class="mat-card-content-new" *ngFor="let property of sellermatchedProperties">
+          <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+              <div class="card-heading-font outputText">&nbsp;Nestimate by {{property.detail.usertitle}}
+                {{property.detail.username | shortName}}</div>
+              <div class="matches-mame">- Same postcode only
+                - Matches price criteria (min reduce 3% max +10%)
+                - Same property type</div>
+            </div>
+            <div class="netimate-content">
+              <div class="nestimate-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText pl-1 ">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText pl-1">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                    {{property.detail.MaxAmount}}/
+                    {{property.detail.MinAmount}}
+                    /{{property.detail.Lookingpostcode}}
+                    /{{property.detail.LookingStreetname}}
+                    /{{property.detail.Position}}
+                    /{{property.detail.PropertyType}}
+                    /{{property.detail.Roomsmax}}
+                    /{{property.detail.Ownership}}
+                    /{{property.detail.Conditions}}
+                      /{{property.detail.Maxbathroom}}
+                       /{{property.detail.Maxreception}}
+                    /{{property.detail.UserId}}
+                    /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>   
+          <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+
+              <div class="card-heading-font outputText">&nbsp;Nestimate by {{property.detail.usertitle}}
+                {{property.detail.username | shortName}}</div>
+            </div>
+            <div class="matches-mame">- Same postcode only
+              - Matches price criteria (min reduce 3% max +10%)
+              - Same property type</div>
+            <div class="netimate-content-expressed">
+
+              <div class="nestimate-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText pl-1 ">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText pl-1">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText pl-1 ">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                    {{property.detail.MaxAmount}}/
+                    {{property.detail.MinAmount}}
+                    /{{property.detail.Lookingpostcode}}
+                    /{{property.detail.LookingStreetname}}
+                    /{{property.detail.Position}}
+                    /{{property.detail.PropertyType}}
+                    /{{property.detail.Roomsmax}}
+                    /{{property.detail.Ownership}}
+                    /{{property.detail.Conditions}}
+                      /{{property.detail.Maxbathroom}}
+                       /{{property.detail.Maxreception}}
+                    /{{property.detail.UserId}}
+                    /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+      <!--Result Set One Price Match-->
+
+
+
+
+
+
+
+
+
+
+    
+  
+
+
+
+
+
+        <!--Result Set No Matches 1 done-->
+        <!--Not Expressed-->
+        <div class="mat-card-content-new" *ngFor="let property of sellerunmatchedProperties">
+          <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame"> POSTCODE MATCH - FIRST 5 LETTERS ONLY
+                - Matches price criteria (min reduce 3% max +10%)
+                - Same property type</div>
+            </div>
+            <div class="netimate-content-no-matches">
+
+              <!-- <div class="nestimate-image">
+                  <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                </div> -->
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+     
+        <!--Expressed-->
+          <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+
+            <div class="nestimate_by">
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame"> POSTCODE MATCH - FIRST 5 LETTERS ONLY
+                - Matches price criteria (min reduce 3% max +10%)
+                - Same property type</div>
+
+            </div>
+            <div class="netimate-content-expressed">
+
+              <!-- <div class="nestimate-image">
+                  <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                </div> -->
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Result Set No Matches 1 done-->
+
+
+
+
+        <!--Result Set No Matches 1 done-->
+        <!--Not Expressed-->
+        <div class="mat-card-content-new" *ngFor="let property of sellerunmatchedPropertiesFirst">
+          <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame"> POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                - Matches price criteria (min reduce 3% max +10%)
+                - Same property type</div>
+            </div>
+            <div class="netimate-content-no-matches">
+
+              <!-- <div class="nestimate-image">
+                  <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                </div> -->
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+  
+        <!--Expressed-->
+          <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+
+            <div class="nestimate_by">
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame"> POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                - Matches price criteria (min reduce 3% max +10%)
+                - Same property type</div>
+
+            </div>
+            <div class="netimate-content-expressed">
+
+              <!-- <div class="nestimate-image">
+                  <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                </div> -->
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Result Set No Matches 1 done-->
+
+
+
+
+
+        <!--Result Set No Matches 2-->
+        <!--Not Expressed-->
+        <div class="mat-card-content-new" *ngFor="let property of sellerunmatchedPriceLogic">
+          <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame">- POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                - Matches price criteria (min reduce 3% max +10%)
+                - ALL property types</div>
+
+
+            </div>
+            <div class="netimate-content-no-matches">
+
+              <!-- <div class="nestimate-image">
+                  <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                </div> -->
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+     
+        <!--Expressed-->
+          <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+
+            <div class="nestimate_by">
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame">- POSTCODE MATCH - FIRST 3 LETTERS ONLY
+                - Matches price criteria (min reduce 3% max +10%)
+                - ALL property types</div>
+
+            </div>
+            <div class="netimate-content-expressed">
+
+
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Result Set No Matches 2-->
+
+
+
+
+
+
+
+
+        <!--Result Set No Matches 4 Done-->
+        <!--Not Expressed-->
+        <div class="mat-card-content-new" *ngFor="let property of sellerlookTown">
+          <div class="not-expressed" *ngIf="!checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame">All other properties - Nationwide</div>
+
+            </div>
+            <div class="netimate-content-no-matches">
+
+              <div class="nestimate-image">
+                <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+              </div>
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+
+        <!--Expressed-->
+          <div class="expressed" *ngIf="checkExpressForValue(property.propertyId)">
+            <div class="nestimate_by">
+
+              <div class="card-heading-font outputText">&nbsp;Other Results</div>
+              <div class="matches-mame">All other properties - Nationwide</div>
+            </div>
+            <div class="netimate-content-expressed">
+              <!-- 
+                <div class="nestimate-image">
+                  <img src="../../../../../../assets/Images/sidelogo.png" class="match-images">
+                </div> -->
+
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'buy'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Price Range </span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Buyer Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                  <div class="heading-nestimate nestimate-content-p1">Financial Status:<span
+                      class="outputText">{{property.detail.FinancialPosition}}</span></div>
+                </div>
+              </span>
+              <span class="seller-buyer-property" *ngIf="property.detail.PropertyFor == 'rent'">
+                <div class="nestimate-price-range">
+                  <span class="heading-nestimate">Rent Range</span> <br>
+                  <span class="outputText pl-1 price-font">&pound;{{property.detail.MinAmount}} -
+                    &pound;{{property.detail.MaxAmount}}</span>
+                </div>
+                <div class="nestimate-content">
+                  <div class="heading-nestimate nestimate-content-p1">Tenant Position:<span
+                      class="outputText">{{property.detail.ChainStatus}}</span></div>
+                </div>
+              </span>
+              <div class="button-container">
+                <div class="dark-blue-button"
+                  routerLink='/SellerSelectedProperty/{{Look_state}}/{{Look_rooms}}/{{Look_Propertycondition}}/{{Look_Address}}/{{Look_ownership}}/{{Look_features}}/{{Look_userId}}/{{Look_postcode}}/{{Look_PropertyType}}/{{Look_maxAmount}}/{{Look_Town}}/{{Look_Address}}/{{Look_Maxbathrooms}}/{{Look_Maxreceptions}}/{{Look_ownership}}/{{Look_Maxrooms}}/
+                  {{property.detail.MaxAmount}}/
+                  {{property.detail.MinAmount}}
+                  /{{property.detail.Lookingpostcode}}
+                  /{{property.detail.LookingStreetname}}
+                  /{{property.detail.Position}}
+                  /{{property.detail.PropertyType}}
+                  /{{property.detail.Roomsmax}}
+                  /{{property.detail.Ownership}}
+                  /{{property.detail.Conditions}}
+                    /{{property.detail.Maxbathroom}}
+                     /{{property.detail.Maxreception}}
+                  /{{property.detail.UserId}}
+                  /{{property.detail.FinancialPosition}}/{{property.propertyId}}/{{expressed}}/{{Look_PropertyFor}}/{{property.detail.PropertyFor}}/{{property.detail.ChainStatus}}'>
+                  See Details<span class="entity-see-deatil outputText"> &gt;</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Result Set No Matches 4 Done-->
+
+
+
+    
+    </div>
+
+  </div>
+
+    </div>
+    </div>
+
+
+
+
+    <!----------------------------------------------------Seller details----------------------------------------------------->

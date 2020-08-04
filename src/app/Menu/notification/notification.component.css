@@ -1,0 +1,33 @@
+/* .grid-item {
+    height: 100vh;
+    z-index: 1;
+    background-color: white;
+} */
+.notification {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    padding: 0.4em 0em;
+}
+
+img.icon {
+    width: 40%;
+    text-align: center;
+}
+.notification-icon {
+    display: flex;
+    justify-content: center;
+}
+.main-grid-notifucation {
+    background-color: white;
+    /* position: absolute; */
+    z-index: 3;
+    height: 100vh;
+    /* top: 10vh; */
+    overflow: hidden;
+}
+.read-notfication{
+    background-color: aquamarine;
+
+    margin-bottom: 4px;
+} 

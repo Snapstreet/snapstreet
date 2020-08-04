@@ -1,0 +1,32 @@
+.prefrences-main-div
+{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.property-detail-h3
+{
+    font-family: 'Open Sans', sans-serif;
+ 
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0px 15px 0px;
+}
+.prefrence-notification
+{
+    background-color: white;
+    padding: 5px;
+}
+.prefrence-radio {
+    margin: 20px;
+}
+.notification-heading {
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: normal;
+}
+.radio-text
+{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400;
+    color:black;
+}

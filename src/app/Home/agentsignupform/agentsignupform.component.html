@@ -1,0 +1,161 @@
+<div *ngIf="isLoading" class="loading-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<mat-card class="mt-4 sign-up-main" *ngIf="!loggedIn">
+
+  <div class="sign-up">
+    <div class="signup-heading">
+
+      <div class="user-cross">
+        <h4 class="heading-nestimate">Sign up</h4>
+
+      </div>
+    </div>
+    <div class="social-button mt-2">
+      <button type="button" class="btn btn-facebook " (click)="facebookLogin()">
+        Facebook
+      </button>
+      <button type="button" class="btn btn-google ml-4" (click)="googleSignup()">
+        Google+
+      </button>
+    </div>
+    <div class="input-group mb-3 mt-3">
+      <form (keydown)="keyDownFunction($event)">
+
+        
+        <div class="form-group has-search">
+          <span class="fa fa-user-circle-o form-control-feedback"></span>
+          <input type="text" class="form-control custom-field" placeholder="Full Name" name="name"  [(ngModel)]="name" #displayName>
+        </div>
+   
+        <div class="form-group has-search">
+          <span class="fa fa-envelope-o form-control-feedback"></span>
+          <input  class="form-control custom-field" type="email" placeholder="Email" #userEmailRegister type="email" name="email" [(ngModel)]="email">
+        </div>
+
+
+        <div class="form-group has-search">
+          <span class="fa fa-lock form-control-feedback"></span>
+          <input  class="form-control custom-field" placeholder="Password" #userPasswordRegister type="password" name="password"
+          [(ngModel)]="password">
+        </div>
+     
+      </form>
+    </div>
+
+
+    <section class="example-section property-con-form">
+
+      <mat-checkbox class="example-margin heading-nestimate" value="Email">Email</mat-checkbox>
+      <mat-checkbox class="example-margin heading-nestimate" value="SMS">SMS</mat-checkbox>
+      <mat-checkbox class="example-margin heading-nestimate" value="Post">Post</mat-checkbox>
+      <mat-checkbox class="example-margin heading-nestimate" value="All">Email,SMS and Post from acrefully
+        selected<br> third port
+      </mat-checkbox>
+      <label for="text" class="heading-nestimate ">By clicking the sms box,you agreeing to recieve"</label>
+      <label for="text" class="heading-nestimate policy">By clicking below to register, you confirm that you agree to our<span routerLink="/terms"> Terms & Conditions </span>and you have read and understood our <span routerLink="/PrivacyPolicy">Privacy Policy</span> </label>
+    </section>
+
+    <button type="button" class="btn btn-social-login"
+      (click)="signUp(displayName.value,userEmailRegister.value,userPasswordRegister.value)">
+      Sign Up
+    </button>
+<p class="dont-have-account pt-2 heading-nestimate" routerLink="/Agenthome" style="text-align: center;">Already have an account?
+  <span class="hyper outputText">Sign In</span></p> 
+  </div>
+
+</mat-card>
+
+
+
+
+
+<div class="agent-form" *ngIf="loggedIn">
+  <div class="agent-form-heading heading-nestimate">Agent SignUp Form</div>
+ <mat-card class="mat-card-item" >
+
+  <div class="heading-signup heading-nestimate">Please fill your company details</div> 
+ </mat-card>   
+<mat-card class="mat-card-item">
+    <form>
+        <mat-form-field class="full-width">
+          <mat-label>Full name</mat-label>
+          <input matInput   name="fullname" [(ngModel)]="agentSignup.fullname">
+        </mat-form-field>
+
+
+        <mat-form-field class="full-width">
+            <mat-label>Company Name</mat-label>
+            <input matInput #first name="company"  [(ngModel)]="agentSignup.company">
+          </mat-form-field>
+
+
+          <div class="full-width mb-4">
+          <mat-option style="background-color: #F5F5F5;">
+            <input type="text" placeholder="Enter Postcode"
+              aria-label="Post Code" matInput [matAutocomplete]="autolooking"
+             name="postcode"  [(ngModel)]="agentSignup.postcode">
+            <mat-autocomplete autoActivesecondOption #autolooking="matAutocomplete">
+              <mat-option  [value]="item">
+              </mat-option>
+            </mat-autocomplete>
+          </mat-option>
+        </div>
+
+
+          <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <input matInput #first  name="address" [(ngModel)]="agentSignup.address">
+          </mat-form-field>
+
+
+          <mat-form-field class="full-width">
+            <mat-label>Job title</mat-label>
+            <input matInput #first  name="jobtitle" [(ngModel)]="agentSignup.jobtitle">
+          </mat-form-field>
+         
+
+          <mat-form-field class="full-width">
+            <mat-label>Phone Number</mat-label>
+            <input matInput #first name="phone" [(ngModel)]="agentSignup.phone" >
+          </mat-form-field>
+
+         
+          <mat-form-field class="full-width">
+            <mat-label>Email address</mat-label>
+            
+            <input matInput  placeholder="Ex. pat@example.com" [(ngModel)]="agentSignup.email" name="email">
+          </mat-form-field>
+
+
+          <!-- <mat-form-field class="full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'"   name="password"  [(ngModel)]="agentSignup.password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          -->
+          <mat-form-field class="full-width">
+            <mat-label>Sole Agency Fees</mat-label>
+            <input matInput #first  name="solefees" [(ngModel)]="agentSignup.solefees">
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label>Multiple Agency Fees</mat-label>
+            <input matInput #first  name="multiplefees" [(ngModel)]="agentSignup.multiplefees">
+          </mat-form-field>
+          <label style="color:white">Upload Image</label>
+<div class="file-upload">
+    
+          <input type="file" name="fileToUpload" id="fileToUpload" (change)="upload($event)" accept=".png,.jpg,.jpeg"  name="image" >
+      
+
+          
+</div>
+<div class="submit-button">
+<button mat-raised-button color="primary" (click)="submitForm()">Start My Free 3-Month Trial Now</button>
+</div>
+    </form>
+</mat-card>
+</div>

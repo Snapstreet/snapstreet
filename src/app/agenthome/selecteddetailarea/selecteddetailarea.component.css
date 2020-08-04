@@ -1,0 +1,54 @@
+img.match-images {
+    width: 30%;
+    margin: 2em;
+
+    margin-bottom: 0em;
+
+}
+
+.agent-selected-detail-top-image {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
+ 
+}
+.seller-main-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+}
+.address-field {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+.address-heading {
+    margin-bottom: 0.5em;
+}
+span.heading-nestimate {
+    margin-left: 1em;
+}
+.adddress-output
+{
+    margin-bottom: 0.5em;
+}
+
+.agent-selected-detail-componet {
+    background-color: #E9F8FF;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.8em;
+    padding-bottom: 1em;
+}
+.dark-blue-button {
+    background-color: var(--DARK-BLUE-COLOR);
+    color: white;
+    padding: 0.3em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

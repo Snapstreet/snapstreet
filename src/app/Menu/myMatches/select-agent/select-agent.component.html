@@ -1,0 +1,72 @@
+<div class="container">
+    <mat-card-title class="title-agent-selection heading-nestimate">Agent Selection</mat-card-title>
+
+
+    <mat-card class="mt-2 dark-background">
+        <mat-card-title class="note-agent-selection heading-nestimate">
+            You are nearly there! To complete the final step - select a local estate agent from the list below. They
+            will be in touch after receiving details of the Nestimate
+        </mat-card-title>
+
+
+        <div class="mandatory">
+
+
+            <div class="mandatory-text heading-nestimate">I consent my details being sent to the selected estate agent
+                and their partners to they can contact me.</div>
+
+            <div class="mandatory-slide">
+                <mat-slide-toggle (click)="Acceptterms()" *ngIf="disable"></mat-slide-toggle>
+                <mat-slide-toggle (click)="uncheckterms()" checked *ngIf="!disable"></mat-slide-toggle>
+        </div>
+    </div>
+    </mat-card>
+
+
+  
+    <mat-card class="mt-4 p-0 dark-background mb-3" *ngFor="let agent of agents">
+        <div class="agent-selection-radiobutton-container" >
+       
+
+            <div class="agent-selection-name">
+                <div class="image-agent-section">
+                    <img src="{{agent.image}}" class="agent-image">
+                </div>
+                <div class="agent-address-section">
+                    <div class="company-name heading-nestimate">{{agent.company}}</div>
+                    <div class="dexter-address heading-nestimate">{{agent.address}}</div>
+                </div>
+            </div>
+            <div class="agent-selection-commision">
+
+                <div class="agency-text mb-1">
+                    <div class="sole-agency-fees heading-nestimate">
+                        Sole agency Fees</div>
+
+                    <div class="Multiple-agency-fees heading-nestimate">
+                        Multiple agency Fees</div>
+                </div>
+
+                <div class="agency-percentage mb-1">
+                    <div class="sole-agency-percen heading-nestimate">
+                        {{agent.solefees}}%</div>
+
+                    <div class="Multiple-agency-percen  heading-nestimate">
+                        {{agent.multiplefees}}%</div>
+                </div>
+
+            </div>
+
+            <div class="agent-selction buttons">
+                <button mat-raised-button color="primary">Read Reviews</button>
+                <button mat-raised-button color="primary"   *ngIf="accepted" (click)="createBuyerEntry(agent.uid)" >Select Agent</button>
+                <button mat-raised-button color="primary" routerLink="/mymatches" *ngIf="!accepted" disabled>Select Agent</button>
+
+            </div>
+        </div>
+
+    </mat-card>
+
+  
+      
+</div>

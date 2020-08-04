@@ -1,0 +1,136 @@
+<div *ngIf="isLoading" class="loading-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+  
+
+  
+  
+  
+<div class="home_content_container" >
+
+
+    <div class="slider">
+      <img src="../../assets/Images/baby-touching-woman-s-face-1257110 (1).jpg" alt=""  class="slider-image">
+  
+       <div class="text-over-image heading-nestimate">Join <span class="light">Free</span> Today!</div>
+     
+      </div>
+    
+  <div class="home-card-components">
+  <mat-card class="radio-cn">
+    <div class="custom-buttons">
+      <p class="i-am">I am</p>
+      <div class="upper-custom-button">
+      
+      <div class="custom-button-first" >
+        <label class="radio-container custom-text">a home owner
+          <input type="radio" name="home"    value="owner" #owner [(ngModel)]="home">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    
+      </div>
+  
+    <div class="upper-custom-button mt-2">
+  
+      <div class="custom-button-first" >
+        <label class="radio-container custom-text">a home seeker
+          <input type="radio" name="home"  value="seeker" #seeker [(ngModel)]="home2">
+          <span class="checkmark"></span>
+        </label>
+      
+      </div>
+    </div>
+        <div class="large-button mt-3">
+        
+          <div class="create-nestimate" (click)="homeradio()">
+            <span class="text-create-nestimate mr-1">Create Your</span>
+            <img src="../../assets/Images/Nestimatelogobutton.png" class="button-image" >
+          </div>
+        </div>
+    </div>
+  </mat-card>
+</div>
+<div class="home-card-components">
+  <mat-card class="second-card" >
+   <div class="image-over">
+  
+     <img mat-card-image src="../../assets/Images/buyer.jpg" class="buyer-jpg">
+     <p class="text-over-image-second">Introducing:a unique property platform</p>
+   </div>
+  
+    <mat-card-content>
+      <p class="text-center pt-2 pr-3 pl-3 home-text-font heading-nestimate">
+        Create Your Nestimate free of any committment, to answer an immediate need or gently explore the possibilities of dreams
+      </p>
+  
+    </mat-card-content>
+  </mat-card>
+ </div>   
+  
+  
+ <div class="home-card-components">
+  
+    <mat-card class="card-steps" >
+      <mat-card-title class="title heading-nestimate heading-nestimate-font">How does Nestimate work ?</mat-card-title>
+  
+        <div class="steps-container">
+  
+             <div class="step">
+              <img src="../../assets/Images/firststep1.png" class="step-mage">
+          
+              <p class="step-text "><b class="outputText">1.Create your Nestimate </b><br> <span class="slider-text  heading-nestimate">Open a world of possibilities! Create Nestimates on our platform by defining your home requirements through our simple online questionnaire.</span></p>
+  
+             </div>
+  
+             <div class="step">
+              <img src="/assets/Images/secondstep.png" class="step-mage">
+           
+              <p class="step-text"><b class="outputText">2.Review matched Nestimates</b><br><span class="slider-text heading-nestimate">If you are a home owner, our unique algorithm will match you with the most relevant Nestimates by home seekers.
+              </span></p>
+              
+              
+              <p class="slider-text heading-nestimate">If you are a home seeker we will match you with Nestimates created by home owners, who may not be actively on the market but might consider selling or renting their property if the right offer came along. .</p>
+        </div>
+  
+  
+             <div class="step">
+              <img src="/assets/Images/thirdstep.png" class="step-mage">
+          
+              <p class="step-text"><b class="outputText">3.Express Interest</b><br><span class="slider-text heading-nestimate">Should you want to take things further, you can express interest on matched Nestimates. If the match is mutually agreed, a local estate agent of your choice will sort out the formalities.</span></p>
+             </div>
+        </div>
+    </mat-card>
+  </div>
+  
+  
+  
+  </div>
+  
+  
+  <div  class="agent-form" >
+    <button type="button" class="btn btn-primary" routerLink="/agentSignup">Agent</button>
+  </div>
+  
+  <div class="cookies-policy" *ngIf="cookie"> 
+  <div class="cookies-policy-text">
+  <div class="policy-heading outputText">
+  
+    <p clas="policy-heading ">Cookie Policy</p>
+    <!-- <img src="../../../../assets/Images/cross.png" class="button-cross" (click)="closeCookie()"> -->
+  </div>
+  
+    <div class="policy-content outputText">
+      <p>We use cookies to provide you with a better service. Continue browsing if you are happy with this, otherwise you can find out how to manage cookies here.</p>
+    </div>
+  
+    <div class="cookies-button">
+   
+      <div class="top-button-cookies" routerLink="/cookies">Manage Settings</div>
+  
+      <div class="top-button-cookies lower-button" (click)="closeCookie()">Allow all Cookies</div>
+  
+    </div>
+  </div>
+  
+  </div>
